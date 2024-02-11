@@ -15,6 +15,8 @@ import Contact from '../pages/Site/Contact/Contact'
 import ShopDetail from '../pages/Site/ShopDetail/ShopDetail'
 import ShopList from '../pages/Site/ShopList/ShopList'
 import SiteRoot from '../pages/Site/SiteRoot'
+import Register from '../pages/Site/Register/Register'
+import Login from '../pages/Site/Login/Login'
 
 
 
@@ -66,6 +68,13 @@ const Routes = [{
     },{
         path:'ShopList',
         element:<ShopList/>
+    }
+    ,{
+        path:'Register',
+        element:<Register/>
+    },{
+        path:'Login',
+        element:<Login/>
     }
     
     ,{

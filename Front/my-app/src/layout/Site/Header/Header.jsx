@@ -82,6 +82,8 @@ const Header = () => {
 
 </div>
           <Link className='link' to="/Contact">CONTACT</Link>
+          <Link className='link' to="/Register">REGISTER</Link>
+          <Link className='link' to="/Login">LOGIN</Link>
           <Link className='link'><i className="fa-solid fa-magnifying-glass"></i></Link>
           <Link className='link'><i className="fa-solid fa-cart-shopping"></i><p>0</p></Link>
         </ul>
