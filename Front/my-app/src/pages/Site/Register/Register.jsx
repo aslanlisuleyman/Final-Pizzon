@@ -6,7 +6,8 @@ const Register = () => {
     <div className='login'>
     <div class="body">
             <div class="containerr">
-                <form action='users/register' method='POST'>
+            <form action='/users/register' method='POST'>
+
                     <div class="head">
                         <span>Sign up</span>
                         <p>Create a free account with your email.</p>
