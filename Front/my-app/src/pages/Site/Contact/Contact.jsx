@@ -2,6 +2,12 @@ import React from 'react'
 import "./Contact.scss"
 import { Link } from 'react-router-dom'
 const Contact = () => {
+  
+
+  const handleSubmit = (e)=>{
+    e.preventDefault()  
+    console.log("submit clicked")
+  }
   return (
     <div>
       <section class="sub-banner bg-yellow overflow-h position-r snipcss-xirZs cont">
@@ -65,7 +71,10 @@ const Contact = () => {
 
 
 <div>
-  <div className='con'>
+
+  <form onSubmit={handleSubmit}>
+
+     <div className='con'>
 
 
     <div className='int'>
@@ -87,8 +96,10 @@ const Contact = () => {
     </div>
    
 
-   <button>SEND MESSAGE</button>
+   <button type='submit'>SEND MESSAGE</button>
   </div>
+  </form>
+ 
 
 
 

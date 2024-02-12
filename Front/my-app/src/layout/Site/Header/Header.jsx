@@ -32,6 +32,12 @@ const Header = () => {
       </div>
       <div className='header__middle'>
         <img className={isFixed ? 'hidden' : ''} src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/header-img.png" alt="" />
+
+
+
+          
+
+
       </div>
       <div className='header__right'>
         <ul>

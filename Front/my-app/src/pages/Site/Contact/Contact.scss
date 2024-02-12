@@ -524,6 +524,7 @@ a:hover {
 }
 
 
+
 .int{
   display: flex;
   flex-direction: column;
@@ -543,6 +544,7 @@ a:hover {
 .con{
   display: flex;
   gap: 40px;
+ flex-wrap: wrap;
 }
 
 .mi{
@@ -567,6 +569,8 @@ a:hover {
     color: #ffffff;
     margin-top: 40px;
   }
+
+  
   img{
     border-radius: 40px;
   }
