@@ -34,8 +34,8 @@ const PizzaController={
     },
     add:async(req,res)=>{
         try{
-            const{image,title,price,desc}=req.body
-            const newProduct= new Pizza({image,title,price,desc})
+            const{image,title,price,desc,brand}=req.body
+            const newProduct= new Pizza({image,title,price,desc,brand})
             await newProduct.save()
             res.status(201).send(newProduct)
         }
@@ -47,8 +47,8 @@ const PizzaController={
     edit:async(req,res)=>{
         try{
             const{id}=req.params
-            const{image,title,price,desc}=req.body
-            await Pizza.findByIdAndUpdate(id,{image,title,price,desc})
+            const{image,title,price,desc,brand}=req.body
+            await Pizza.findByIdAndUpdate(id,{image,title,price,desc,brand})
             res.status(200).send("succes")
         }
         catch(error){

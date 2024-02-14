@@ -18,6 +18,7 @@ const HomeCard1 = () => {
 
 <div className='card1'>
     {filter.map((item,index)=>{
+      if(item.brand=="pizza"){
         return(
             <div className='card1__card' key={index}>
               <div className='ma'>
@@ -39,7 +40,9 @@ const HomeCard1 = () => {
 
             </div>
         )
-    })}
+    }
+      }
+        )}
 
 </div>
 

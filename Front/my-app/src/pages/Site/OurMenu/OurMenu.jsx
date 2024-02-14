@@ -1,9 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import MainContext from '../../../context/context'
 import "./OurMenu.scss"
 const OurMenu = () => {
-  const {filterAll}=useContext(MainContext)
+  const {filter}=useContext(MainContext)
+  const [activeButton, setActiveButton] = useState('ALL');
+  const handleClick = (button) => {
+    setActiveButton(button);
+  };
   return (
     <div>
       <section class="sub-banner bg-yellow overflow-h position-r snipcss-i49qt">
@@ -50,17 +54,20 @@ const OurMenu = () => {
 </section>
 
 <div className='aspop'>
-  <button>ALL</button>
-  <button>SLIDES</button>
-  <button>PIZZAS</button>
+  <button onClick={() => handleClick('ALL')}>ALL</button>
+  <button >SLIDES</button>
+  <button onClick={() => handleClick('PIZZA')}>PIZZAS</button>
   <button>OFFERS</button>
   <button>PASTA</button>
 </div>
 <div className='card2'>
-    {filterAll.map((item,index)=>{
-        return(
+   
+  {activeButton === 'ALL' && (
+          filter.map((item, index) => {
+            if(item.brand=="all"){
+               return(
             <div className='card2__card' key={index}>
-              <div className='ma'>
+               <div className='ma'>
                 <img className='il' src={item.image} alt="" />
               </div>
               <div className='card2__tp'>
@@ -75,11 +82,39 @@ const OurMenu = () => {
     Order Now
   </a>
 </div>
-
-
             </div>
-        )
-    })}
+          )}
+            }
+           )
+        )}
+        {activeButton === 'PIZZA' && (
+          filter.map((item, index) =>{
+            if(item.brand=="pizza"){
+     return(
+            <div className='card2__card' key={index}>
+            <div className='ma'>
+             <img className='il' src={item.image} alt="" />
+           </div>
+           <div className='card2__tp'>
+             <p className='p1'>{item.title}</p>
+             <p className='p2'>${item.price}.00</p>
+           </div>
+           <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
+           <div className='card2__desc'>{item.desc}</div>
+           <div class="btt menu-item-order snipcss-DQMsl">
+<a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+ <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
+ Order Now
+</a>
+</div>
+         </div>
+          )}
+            }
+          )
+      
+        )}
+        
+
 
 </div>
 
