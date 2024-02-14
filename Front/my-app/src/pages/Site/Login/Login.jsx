@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom' 
 import Swal from 'sweetalert2';
+import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
     
@@ -15,7 +16,22 @@ const Login = () => {
       e.preventDefault()  
       axios.post('http://localhost:3000/Login',{email,password}).then(result=>{console.log(result)
       if(result.data === "Success"){
-            navigate ("/")
+        toast.promise(
+          new Promise((resolve, reject) => {
+            setTimeout(() => {
+              {
+                resolve("Login successful!");
+                navigate ("/")
+              } 
+            }, 1000);
+          }),
+          {
+            loading: "Logging in...",
+            success: (message) => message,
+            error: (error) => error.message,
+          }
+        );
+            
       } else{
         // Swal.fire({
         //     icon: "error",

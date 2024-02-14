@@ -1,6 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./HomeStatic3.scss"
+import axios from "axios"
 const HomeStatic3 = () => {
+  
+  const [email,setEmail] = useState()
+  const [subject,setSubject] = useState()
+  const [message,setMessage] = useState()
+  const [messag,setMessag] = useState()
+  const [subjec,setSubjec] = useState()
+  const [date,setDate] = useState()
+  
+  const [guest,setGuest] = useState()
+  const sendMail = ()=>{
+    axios.get("http://localhost:3000//",{
+
+    params:{
+      email,
+      message,
+      guest,
+      date,
+      subjec,
+      messag
+
+    }
+    }).then(()=>{
+      console.log("failure")
+    }).catch(()=>{
+      console.log("success")
+    })
+
+  }
   return (
     <div className='pza'>
         <section class="reservation-part left-padding mb-150 position-r overflow-h snipcss-VHeQ9 style-BHslN" id="style-BHslN">
@@ -20,20 +49,20 @@ const HomeStatic3 = () => {
 <div>
 <div className='rez'>
          <div>
-            <input type="text" placeholder='Name*' /> <br />
-            <input type="text" placeholder='Phone*' /> <br />
-            <input type="text" placeholder='Date*'/>
+            <input type="text" placeholder='Name*' onChange={(e)=>setMessag(e.target.value)}/> <br />
+            <input type="text" placeholder='Phone*' onChange={(e)=>setSubjec(e.target.value)}/> <br />
+            <input type="text" placeholder='Date*' onChange={(e)=>setDate(e.target.value)}/>
          </div>
          <div>
-         <input type="text" placeholder='Email*'/> <br />
-            <input type="text" placeholder='Time*'/><br />
-            <input type="text" placeholder='Guest*'/> 
+         <input type="text" placeholder='Email*' onChange={(e)=>setEmail(e.target.value)}/> <br />
+            <input type="text" placeholder='Message*' onChange={(e)=>setMessage(e.target.value)}/><br />
+            <input type="text" placeholder='Guest*' onChange={(e)=>setGuest(e.target.value)}/> 
          </div>
       </div>
         
         <div className='bnb'>
 
-            <button>BOOK NOW</button>
+            <button onClick={sendMail}>BOOK NOW</button>
         </div>
 
       </div>

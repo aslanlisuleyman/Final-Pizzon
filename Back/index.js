@@ -7,9 +7,6 @@ const PizzaRouter=require("./routes/Pizza.routes")
 const AllRouter=require("./routes/All.routes")
 const EmployeeModel = require('./models/Employee')
 
-const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL;
-const adminEmailFull = process.env.NEXT_PUBLIC_ADMIN_EMAIL_FULL;
-const pass = process.env.NEXT_PUBLIC_EMAIL_PASSWORD;
 
 
 const app=express()
@@ -23,6 +20,88 @@ mongoose.connect("mongodb+srv://Suleyman:suleyman123@suleyman.vyltqxp.mongodb.ne
 
 app.use("/pizza",PizzaRouter)
 app.use("/all",AllRouter)
+
+app.use((req,res,next)=>{
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    next();
+});
+
+function sendEmail({email,subject,message,subjec,messag}){
+    return new Promise((resolve,reject)=>{
+        var transporter = nodemailer.createTransport({
+            service:"gmail",
+            auth:{
+                user:"pizzon.site@gmail.com",
+                pass:"   amqi gjrj ympi zvmn  "
+            }
+            // oiyo ququ dzzs ysum
+        });
+
+        const mail_configs = {
+            from: "pizzon.site@gmail.com",
+            to: email,
+            subject: subject,
+            html: `<p>Name:${messag} <br/> Phone:${subjec} <br/> Message:${message}    </p>`,
+            
+        };
+
+       
+
+    transporter.sendMail(mail_configs, function (error,info){
+        if(error){
+            console.log(error)
+            return reject ({message:`An error occured`})
+        }
+        return resolve({message:'Email sent successfully'}); 
+    })
+    });
+}
+
+
+function sendEmaill({email,subject,message,subjec,messag,date,guest}){
+    return new Promise((resolve,reject)=>{
+        var transporter = nodemailer.createTransport({
+            service:"gmail",
+            auth:{
+                user:"pizzon.site@gmail.com",
+                pass:"   amqi gjrj ympi zvmn  "
+            }
+            // oiyo ququ dzzs ysum
+        });
+
+
+        const mail_configss = {
+            from: "pizzon.site@gmail.com",
+            to: email,
+            subject: subject,
+            html: `<p>Name:${messag} <br/> Phone:${subjec} <br/> Message:${message}   <br/>Date:${date} <br/>Guest:${guest} </p>`,
+            
+        };
+
+    transporter.sendMail(mail_configss, function (error,info){
+        if(error){
+            console.log(error)
+            return reject ({message:`An error occured`})
+        }
+        return resolve({message:'Email sent successfully'}); 
+    })
+    });
+}
+
+
+
+app.get("/",( req, res) => {
+    sendEmail(req.query)
+    .then((response)=>response.send(response.message))
+    .catch((error)=>res.status(500).send(error.message))
+})
+
+
+app.get("//",( req, res) => {
+    sendEmaill(req.query)
+    .then((response)=>response.send(response.message))
+    .catch((error)=>res.status(500).send(error.message))
+})
 
 
 app.post('/Login' , (req,res)=>{
@@ -47,30 +126,10 @@ EmployeeModel.create(req.body)
 .catch(err=>res.json(err))
 })
 
-const transporter = nodemailer.createTransport({
-    // service:"gmail",
-    host: process.env.NEXT_PUBLIC_EMAIL_HOST,
-    port: process.env.NEXT_PUBLIC_EMAIL_PORT,
-    secure:true,
-    auth:{
-        user:adminEmail,
-        pass,
 
-    }
-    
-    
-  });
-
-  const mailOptions = {
-    from: adminEmailFull,
-    to: adminEmailFull,
-    
-  }
 
 
 app.listen(3000,()=>{
     console.log("running Mongo Db")
 })
-
-module.exports={mailOptions,transporter}
 

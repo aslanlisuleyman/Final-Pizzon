@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Contact.scss"
 import { Link } from 'react-router-dom'
+import axios from "axios"
 const Contact = () => {
   
 
-  const handleSubmit = (e)=>{
-    e.preventDefault()  
-    console.log("submit clicked")
+  const [email,setEmail] = useState()
+  const [subject,setSubject] = useState()
+  const [message,setMessage] = useState()
+  const [messag,setMessag] = useState()
+  const [subjec,setSubjec] = useState()
+  const sendMail = ()=>{
+    axios.get("http://localhost:3000/",{
+
+    params:{
+      email,
+      message,
+      subject,
+      subjec,
+      messag
+
+    }
+    }).then(()=>{
+      console.log("failure")
+    }).catch(()=>{
+      console.log("success")
+    })
+
   }
   return (
     <div>
@@ -72,18 +92,18 @@ const Contact = () => {
 
 <div>
 
-  <form onSubmit={handleSubmit}>
+  
 
      <div className='con'>
 
 
     <div className='int'>
-      <input type="text" placeholder='Name*'/>
-      <input type="text" placeholder='Phone*' />
+      <input type="text" placeholder='Website' onChange={(e)=>setSubject(e.target.value)}/>
+      <input type="text" placeholder='Phone*' onChange={(e)=>setSubjec(e.target.value)}/>
     </div>
     <div className='int'>
-    <input type="text" placeholder='Email*'/>
-    <input type="text" placeholder='Website'/>
+    <input type="email" placeholder='Email*' onChange={(e)=>setEmail(e.target.value)}/>
+    <input type="text" placeholder='Name*' onChange={(e)=>setMessag(e.target.value)}/>
     </div>
   </div>
 
@@ -92,13 +112,13 @@ const Contact = () => {
 
   <div>
     <div>
-      <textarea placeholder='Write Message' name="" id="" cols="30" rows="10"></textarea>
+      <textarea placeholder='Write Message' onChange={(e)=>setMessage(e.target.value)} name="" id="" cols="30" rows="10"></textarea>
     </div>
    
 
-   <button type='submit'>SEND MESSAGE</button>
+   <button onClick={sendMail}>SEND MESSAGE</button>
   </div>
-  </form>
+
  
 
 
