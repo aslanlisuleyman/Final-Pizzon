@@ -12,6 +12,7 @@
     "nodemailer": "^6.9.9",
     "owl.carousel": "^2.3.4",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-owl-carousel": "^2.3.3",
@@ -46,6 +47,4 @@
       "last 1 safari version"
     ]
   }
-
-  
 }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import MainContext from '../../../context/context'
 const ShopList = () => {
   
-  const {filter}=useContext(MainContext)
+  const {filter,addBasket,searchHandler,sortAz,sortZa,sortprice}=useContext(MainContext)
   const [activeButton, setActiveButton] = useState('ALL');
   const handleClick = (button) => {
     setActiveButton(button);
@@ -58,22 +58,30 @@ const ShopList = () => {
 <div>
 <div className='filter'>
 <div>
-  <button><i class="fa-solid fa-sort"></i>            PRICE</button>
+  <button onClick={(e)=>{
+                    sortprice(e.target.value)
+                }}><i class="fa-solid fa-sort"></i>            PRICE</button>
 </div>
 
 
-<input type="text" placeholder="Search..." name="text" className="intp"></input>
+<input onChange={(e)=>{
+                    searchHandler(e.target.value)
+                }} type="text" placeholder="Search ..." name="text" className="intp"></input>
 
 
 
 <div className='azs'>
-  <p>Showing all 6 results</p>
+  <p>Showing all  results</p>
   <div className='az'>
-  <button className="buttm">
+  <button onClick={(e)=>{
+                    sortAz(e.target.value)
+                }} className="buttm">
    <svg class="svgIcon" viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm50.7-186.9L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path></svg>
   A-Z
 </button>
-<button className="buttm">
+<button onClick={(e)=>{
+                    sortZa(e.target.value)
+                }} className="buttm">
    <svg class="svgIcon" viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm50.7-186.9L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path></svg>
   Z-A
 </button>
@@ -100,7 +108,9 @@ const ShopList = () => {
               <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
               <div className='card2__desc'>{item.desc}</div>
               <div class="btt menu-item-order snipcss-DQMsl">
-  <a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+  <a onClick={()=>{
+                addBasket(item)
+            }} class="btn-ct btn-small snipcss0-0-0-1">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
     Order Now
   </a>
@@ -125,7 +135,9 @@ const ShopList = () => {
            <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
            <div className='card2__desc'>{item.desc}</div>
            <div class="btt menu-item-order snipcss-DQMsl">
-<a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+<a onClick={()=>{
+                addBasket(item)
+            }} class="btn-ct btn-small snipcss0-0-0-1">
  <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
  Order Now
 </a>
@@ -151,7 +163,9 @@ const ShopList = () => {
               <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
               <div className='card2__desc'>{item.desc}</div>
               <div class="btt menu-item-order snipcss-DQMsl">
-  <a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+  <a onClick={()=>{
+                addBasket(item)
+            }} class="btn-ct btn-small snipcss0-0-0-1">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
     Order Now
   </a>
@@ -176,7 +190,9 @@ const ShopList = () => {
               <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
               <div className='card2__desc'>{item.desc}</div>
               <div class="btt menu-item-order snipcss-DQMsl">
-  <a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+  <a onClick={()=>{
+                addBasket(item)
+            }} class="btn-ct btn-small snipcss0-0-0-1">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
     Order Now
   </a>
@@ -201,7 +217,9 @@ const ShopList = () => {
               <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
               <div className='card2__desc'>{item.desc}</div>
               <div class="btt menu-item-order snipcss-DQMsl">
-  <a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+  <a onClick={()=>{
+                addBasket(item)
+            }} class="btn-ct btn-small snipcss0-0-0-1">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
     Order Now
   </a>

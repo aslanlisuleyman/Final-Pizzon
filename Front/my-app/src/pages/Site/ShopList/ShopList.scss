@@ -887,5 +887,16 @@ h5 {
     width: 400px;
     height: 45px;
     padding-left: 20px;
-    border: 3px solid #fbb200;
+    border: 3px solid #ffc32d;
+    box-shadow: 0 0 20px orange;
+}
+
+
+.intp {
+  
+  
+  transition: box-shadow 0.3s ease;
+}
+.intp:focus {
+  box-shadow: 0 0 55px orange;
 }

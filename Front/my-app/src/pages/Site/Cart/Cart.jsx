@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import "./Cart.scss"
+import MainContext from '../../../context/context'
 const Cart = () => {
+  const {handleInc,handleDec,basket,deleteBasket}=useContext(MainContext)
+  let totalPrice=0
   return (
     <div>
        <section class="sub-banner bg-yellow overflow-h position-r snipcss-i49qt">
@@ -46,6 +49,137 @@ const Cart = () => {
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/banner-leaf.png" alt="banner-leaf"/>
   </div>
 </section>
+
+<section class="cart ptb-150 snipcss-4QKgd">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8 col-lg-12 col-md-12">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="product-name">
+                  Product
+                </th>
+                <th class="price">
+                  Price
+                </th>
+                <th class="qty">
+                  Quantity
+                </th>
+                <th class="total-price">
+                  Total
+                </th>
+                <th>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                basket.map((item,index)=>{
+                  totalPrice += item.totalPrice
+                  return(
+                   <tr key={index}>
+                <td class="product-name">
+                  <div class="product-box">
+                    <div class="product-img">
+                      <a >
+                        <img src={item.image} alt="Item Image"/>
+                      </a>
+                    </div>
+                    <div class="product-detail">
+                      <a  class="pro-title">
+                        {item.title}
+                      </a>
+                    </div>
+                  </div>
+                </td>
+                <td class="price">
+                  ${item.price}.00
+                </td>
+                <td class="qty">
+                  <div class="number">
+                    <span class="minus">
+                      <i onClick={()=>{
+        handleDec(item)
+      }}  class="fa fa-angle-left" aria-hidden="true">
+                      </i>
+                    </span>
+                    <span className='coun'>{item.count}</span>
+                    <span class="plus">
+                      <i onClick={()=>{
+        handleInc(item)
+      }} class="fa fa-angle-right" aria-hidden="true">
+                      </i>
+                    </span>
+                  </div>
+                </td>
+                <td class="price">
+                  ${item.totalPrice}.00
+                </td>
+                <td class="remove">
+                  <a class="item-remove" onClick={()=>{
+deleteBasket(item._id)
+      }}>
+                    <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/delete.png" alt="delete"/>
+                  </a>
+                </td>
+              </tr>
+                  )
+                }
+              )}
+              
+              
+             
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+      <div class="col-xl-4 col-lg-12 col-md-12">
+        <div class="cart-totals">
+          <h4 class="cart-title">
+            Cart Total
+          </h4>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                  Item(s) Subtotal
+                </td>
+                <td class="right-price">
+                  ${totalPrice}.00
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Shipping Cost
+                </td>
+                <td class="right-price">
+                  $00.00
+                </td>
+              </tr>
+              <tr>
+                <td class="totals">
+                  Order Total
+                </td>
+                <td class="right-price totals">
+                  ${totalPrice}.00
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="checkout-btn text-center">
+            <a  class="btn-ct btn-small">
+              Proceed To Checkout
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
   )
 }

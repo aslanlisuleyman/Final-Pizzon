@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import MainContext from '../../../context/context'
 import "./OurMenu.scss"
 const OurMenu = () => {
-  const {filter}=useContext(MainContext)
+  const {filter,addBasket}=useContext(MainContext)
   const [activeButton, setActiveButton] = useState('ALL');
   const handleClick = (button) => {
     setActiveButton(button);
@@ -122,7 +122,9 @@ const OurMenu = () => {
               <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
               <div className='card2__desc'>{item.desc}</div>
               <div class="btt menu-item-order snipcss-DQMsl">
-  <a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+  <a onClick={()=>{
+                addBasket(item)
+            }} class="btn-ct btn-small snipcss0-0-0-1">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
     Order Now
   </a>
@@ -147,7 +149,9 @@ const OurMenu = () => {
            <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
            <div className='card2__desc'>{item.desc}</div>
            <div class="btt menu-item-order snipcss-DQMsl">
-<a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+<a onClick={()=>{
+                addBasket(item)
+            }} class="btn-ct btn-small snipcss0-0-0-1">
  <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
  Order Now
 </a>
@@ -173,7 +177,9 @@ const OurMenu = () => {
               <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
               <div className='card2__desc'>{item.desc}</div>
               <div class="btt menu-item-order snipcss-DQMsl">
-  <a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+  <a onClick={()=>{
+                addBasket(item)
+            }} class="btn-ct btn-small snipcss0-0-0-1">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
     Order Now
   </a>
@@ -198,7 +204,9 @@ const OurMenu = () => {
               <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
               <div className='card2__desc'>{item.desc}</div>
               <div class="btt menu-item-order snipcss-DQMsl">
-  <a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+  <a onClick={()=>{
+                addBasket(item)
+            }} class="btn-ct btn-small snipcss0-0-0-1">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
     Order Now
   </a>
@@ -223,7 +231,9 @@ const OurMenu = () => {
               <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
               <div className='card2__desc'>{item.desc}</div>
               <div class="btt menu-item-order snipcss-DQMsl">
-  <a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+  <a onClick={()=>{
+                addBasket(item)
+            }} class="btn-ct btn-small snipcss0-0-0-1">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
     Order Now
   </a>

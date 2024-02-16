@@ -44,6 +44,70 @@ function App() {
     },[])
 
 
+    const deleteBasket=(id)=>{
+      const target=basket.find(items=>items._id==id)
+      basket.splice(basket.indexOf(target),1)
+      setWishlist([...basket])
+      localStorage.setItem("basket",JSON.stringify([...basket]))
+    }
+  
+    const addBasket=(item)=>{
+      const target=basket.find(pro=>pro._id==item._id)
+      if(!target){
+        const newItem={...item,count:1,totalPrice:item.price}
+        setBasket([...basket,newItem])
+        localStorage.setItem("basket",JSON.stringify([...basket,newItem]))
+        toast.success("Əlavə olundu")
+      } else{
+        const newData={...item,count:target.count+1,totalPrice:item.price*(target.count+1)}
+        setBasket([...basket.filter(pro=>pro._id != item._id),newData])
+        localStorage.setItem("basket",JSON.stringify([...basket.filter(pro=>pro._id != item._id),newData]))
+        toast.success("Əlavə olundu")
+  
+      }
+    }
+    const handleInc=(item)=>{
+      const target=basket.find(pro=>pro._id==item._id)
+      target.count += 1
+      target.totalPrice=item.price*target.count
+      setBasket([...basket])
+      localStorage.setItem("basket",JSON.stringify([...basket]))
+  
+  
+    }
+  
+    const handleDec=(item)=>{
+      const target=basket.find(pro=>pro._id==item._id)
+      let updatedata=[...basket.filter(pro=>pro._id==item._id)]
+      if(target.count>1){
+        target.count -= 1
+        target.totalPrice=item.price*target.count
+        setBasket([...basket])
+        localStorage.setItem("basket",JSON.stringify([...basket]))
+      }
+      
+    }
+
+    const searchHandler=(searchValue)=>{
+      if(searchValue){
+        setFilter([...data.filter(item=>item.title.toLowerCase().trim().includes(searchValue.trim().toLowerCase()))])
+      }else{
+        setFilter([...data])
+      }
+    }
+  
+    const sortprice=()=>{
+      setFilter([...data.sort((a,b)=>b.price-a.price)])
+    }
+    const sortAz=()=>{
+      setFilter([...data.sort((a,b)=>a.title.localeCompare(b.title))])
+    }
+  
+  const sortZa=()=>{
+      setFilter([...data.sort((a,b)=>b.title.localeCompare(a.title))])
+    }
+  
+
     const handleButtonClick = (endpoint) => {
       setLoading(true);
       axios.get(`http://localhost:3000/${endpoint}`)
@@ -59,7 +123,7 @@ function App() {
     
   const datas={
     data,setData,filter,setFilter,wishlist,setWishlist,basket,setBasket,loading,setLoading,error,setError,
-    all,setAll,filterAll,setFilterAll,handleButtonClick
+    all,setAll,filterAll,setFilterAll,handleButtonClick,handleDec,handleInc,addBasket,deleteBasket,searchHandler,sortprice,sortAz,sortZa
 
   }
 
