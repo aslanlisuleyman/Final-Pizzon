@@ -8,7 +8,7 @@ import { Button, Offcanvas } from 'react-bootstrap';
 import MainContext from '../../../context/context';
 
 const Header = () => {
-  const {handleInc,handleDec,basket,deleteBasket}=useContext(MainContext)
+  const {handleInc,handleDec,basket,deleteBasket,homeCounter}=useContext(MainContext)
   let totalPrice=0
   const [isFixed, setIsFixed] = useState(false);
   const [show, setShow] = useState(false);
@@ -100,7 +100,7 @@ const Header = () => {
           <Link className='link' to="/Login">LOGIN</Link>
           
             <li style={{color:"black"}} className='link bs' variant="primary" onClick={handleShow}>
-            <i className="fa-solid fa-cart-shopping"></i><p>0</p>
+            <i className="fa-solid fa-cart-shopping"></i><p style={{color:'white'}}>{homeCounter}</p>
       </li>
       
 

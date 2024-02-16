@@ -17,7 +17,7 @@ function App() {
   const[error,setError]=useState({})
   const[wishlist,setWishlist]=useState(localStorage.getItem("wishlist")?JSON.parse(localStorage.getItem("wishlist")):[])
   const[basket,setBasket]=useState(localStorage.getItem("basket")?JSON.parse(localStorage.getItem("basket")):[])
-  
+  const [homeCounter,setHomeCounter]=useState(localStorage.getItem("counter")? Math.max(0,parseInt(localStorage.getItem("counter"))):0)
    
   useEffect(()=>{
     axios.get("http://localhost:3000/pizza").then(res=>{
@@ -49,6 +49,9 @@ function App() {
       basket.splice(basket.indexOf(target),1)
       setWishlist([...basket])
       localStorage.setItem("basket",JSON.stringify([...basket]))
+      setHomeCounter(homeCounter - target.count);
+      localStorage.setItem("counter", homeCounter - target.count);
+
     }
   
     const addBasket=(item)=>{
@@ -56,10 +59,14 @@ function App() {
       if(!target){
         const newItem={...item,count:1,totalPrice:item.price}
         setBasket([...basket,newItem])
+        setHomeCounter(homeCounter+1)
+        localStorage.setItem("counter",homeCounter+1)
         localStorage.setItem("basket",JSON.stringify([...basket,newItem]))
         toast.success("Əlavə olundu")
       } else{
         const newData={...item,count:target.count+1,totalPrice:item.price*(target.count+1)}
+        setHomeCounter(homeCounter+1)
+        localStorage.setItem("counter",homeCounter+1)
         setBasket([...basket.filter(pro=>pro._id != item._id),newData])
         localStorage.setItem("basket",JSON.stringify([...basket.filter(pro=>pro._id != item._id),newData]))
         toast.success("Əlavə olundu")
@@ -72,6 +79,8 @@ function App() {
       target.totalPrice=item.price*target.count
       setBasket([...basket])
       localStorage.setItem("basket",JSON.stringify([...basket]))
+      setHomeCounter(homeCounter+1)
+      localStorage.setItem("counter",homeCounter+1)
   
   
     }
@@ -81,6 +90,8 @@ function App() {
       let updatedata=[...basket.filter(pro=>pro._id==item._id)]
       if(target.count>1){
         target.count -= 1
+        setHomeCounter(homeCounter - 1);
+        localStorage.setItem("counter", homeCounter - 1);
         target.totalPrice=item.price*target.count
         setBasket([...basket])
         localStorage.setItem("basket",JSON.stringify([...basket]))
@@ -123,7 +134,8 @@ function App() {
     
   const datas={
     data,setData,filter,setFilter,wishlist,setWishlist,basket,setBasket,loading,setLoading,error,setError,
-    all,setAll,filterAll,setFilterAll,handleButtonClick,handleDec,handleInc,addBasket,deleteBasket,searchHandler,sortprice,sortAz,sortZa
+    all,setAll,filterAll,setFilterAll,handleButtonClick,handleDec,handleInc,addBasket,deleteBasket,searchHandler,sortprice,sortAz,sortZa,
+    homeCounter
 
   }
 
