@@ -24,7 +24,7 @@ const PizzaController={
     delete:async(req,res)=>{
         try{
              const {id}=req.params
-        await Product.findByIdAndDelete(id)
+        await Pizza.findByIdAndDelete(id)
         const prod=await Pizza.find({})
         res.status(200).send(prod)
         }

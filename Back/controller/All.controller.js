@@ -24,7 +24,7 @@ const AllController={
     delete:async(req,res)=>{
         try{
              const {id}=req.params
-        await Product.findByIdAndDelete(id)
+        await All.findByIdAndDelete(id)
         const prod=await All.find({})
         res.status(200).send(prod)
         }
@@ -34,8 +34,8 @@ const AllController={
     },
     add:async(req,res)=>{
         try{
-            const{image,title,price,desc}=req.body
-            const newProduct= new All({image,title,price,desc})
+            const{image,title,desc, brand}=req.body
+            const newProduct= new All({image,title,desc, brand})
             await newProduct.save()
             res.status(201).send(newProduct)
         }
@@ -47,8 +47,8 @@ const AllController={
     edit:async(req,res)=>{
         try{
             const{id}=req.params
-            const{image,title,price,desc}=req.body
-            await All.findByIdAndUpdate(id,{image,title,price,desc})
+            const{image,title,desc, brand}=req.body
+            await All.findByIdAndUpdate(id,{image,title,desc, brand})
             res.status(200).send("succes")
         }
         catch(error){

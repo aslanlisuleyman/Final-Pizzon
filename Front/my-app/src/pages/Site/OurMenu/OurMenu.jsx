@@ -8,6 +8,11 @@ const OurMenu = () => {
   const handleClick = (button) => {
     setActiveButton(button);
   };
+  const {all}=useContext(MainContext)
+  const [activeButtonn, setActiveButtonn] = useState('FIRST');
+  const handleClickk = (button) => {
+    setActiveButtonn(button);
+  };
   return (
     <div>
       <section class="sub-banner bg-yellow overflow-h position-r snipcss-i49qt">
@@ -52,14 +57,54 @@ const OurMenu = () => {
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/banner-leaf.png" alt="banner-leaf"/>
   </div>
 </section>
-
+{/* 
 <div className='aspop'>
   <button onClick={() => handleClick('ALL')}>ALL</button>
-  <button >SLIDES</button>
+  <button  onClick={() => handleClick('SLIDES')}>SLIDES</button>
   <button onClick={() => handleClick('PIZZA')}>PIZZAS</button>
-  <button>OFFERS</button>
-  <button>PASTA</button>
-</div>
+  <button onClick={() => handleClick('OFFERS')}>OFFERS</button>
+  <button onClick={() => handleClick('PASTA')}>PASTA</button>
+</div> */}
+{/* <div className='aspop'>
+  <button className='poas' style={{backgroundColor: activeButton === 'ALL' ? 'orange' : 'inherit',color: activeButton === 'ALL' ? 'white' : 'inherit'}} onClick={() => handleClick('ALL')}>ALL</button>
+  <button className='poas'  style={{backgroundColor: activeButton === 'SLIDES' ? 'orange' : 'inherit',color: activeButton === 'SLIDES' ? 'white' : 'inherit' }} onClick={() => handleClick('SLIDES')}>SLIDES</button>
+  <button className='poas'  style={{backgroundColor: activeButton === 'PIZZA' ? 'orange' : 'inherit' ,color: activeButton === 'PIZZA' ? 'white' : 'inherit'}} onClick={() => handleClick('PIZZA')}>PIZZAS</button>
+  <button className='poas'  style={{backgroundColor: activeButton === 'OFFERS' ? 'orange' : 'inherit',color: activeButton === 'OFFERS' ? 'white' : 'inherit'}} onClick={() => handleClick('OFFERS')}>OFFERS</button>
+  <button className='poas'  style={{backgroundColor: activeButton === 'PASTA' ? 'orange' : 'inherit',color: activeButton === 'PASTA' ? 'white' : 'inherit',}} onClick={() => handleClick('PASTA')}>PASTA</button>
+</div> */}
+<div className='aspop'>
+      <button
+        className={activeButton === 'ALL' ? 'active' : ''}
+        onClick={() => handleClick('ALL')}
+      >
+        ALL
+      </button>
+      <button
+        className={activeButton === 'SLIDES' ? 'active' : ''}
+        onClick={() => handleClick('SLIDES')}
+      >
+        SLIDES
+      </button>
+      <button
+        className={activeButton === 'PIZZA' ? 'active' : ''}
+        onClick={() => handleClick('PIZZA')}
+      >
+        PIZZAS
+      </button>
+      <button
+        className={activeButton === 'OFFERS' ? 'active' : ''}
+        onClick={() => handleClick('OFFERS')}
+      >
+        OFFERS
+      </button>
+      <button
+        className={activeButton === 'PASTA' ? 'active' : ''}
+        onClick={() => handleClick('PASTA')}
+      >
+        PASTA
+      </button>
+    </div>
+
 <div className='card2'>
    
   {activeButton === 'ALL' && (
@@ -113,764 +158,174 @@ const OurMenu = () => {
           )
       
         )}
-        
+         {activeButton === 'SLIDES' && (
+          filter.map((item, index) => {
+            if(item.brand=="slides"){
+               return(
+            <div className='card2__card' key={index}>
+               <div className='ma'>
+                <img className='il' src={item.image} alt="" />
+              </div>
+              <div className='card2__tp'>
+                <p className='p1'>{item.title}</p>
+                <p className='p2'>${item.price}.00</p>
+              </div>
+              <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
+              <div className='card2__desc'>{item.desc}</div>
+              <div class="btt menu-item-order snipcss-DQMsl">
+  <a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+    <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
+    Order Now
+  </a>
+</div>
+            </div>
+          )}
+            }
+           )
+        )}
+         {activeButton === 'OFFERS' && (
+          filter.map((item, index) => {
+            if(item.brand=="offers"){
+               return(
+            <div className='card2__card' key={index}>
+               <div className='ma'>
+                <img className='il' src={item.image} alt="" />
+              </div>
+              <div className='card2__tp'>
+                <p className='p1'>{item.title}</p>
+                <p className='p2'>${item.price}.00</p>
+              </div>
+              <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
+              <div className='card2__desc'>{item.desc}</div>
+              <div class="btt menu-item-order snipcss-DQMsl">
+  <a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+    <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
+    Order Now
+  </a>
+</div>
+            </div>
+          )}
+            }
+           )
+        )}
+         {activeButton === 'PASTA' && (
+          filter.map((item, index) => {
+            if(item.brand=="pasta"){
+               return(
+            <div className='card2__card' key={index}>
+               <div className='ma'>
+                <img className='il' src={item.image} alt="" />
+              </div>
+              <div className='card2__tp'>
+                <p className='p1'>{item.title}</p>
+                <p className='p2'>${item.price}.00</p>
+              </div>
+              <div className='card2__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
+              <div className='card2__desc'>{item.desc}</div>
+              <div class="btt menu-item-order snipcss-DQMsl">
+  <a href="shop-detail.html" class="btn-ct btn-small snipcss0-0-0-1">
+    <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
+    Order Now
+  </a>
+</div>
+            </div>
+          )}
+            }
+           )
+        )}
 
 
 </div>
 
 
-<section class="our-strength position-r pt-150 pb-120 mb-150 bg-yellow overflow-h snipcss-7cQqE">
-  <div class="strength-vacter wow fadeInRight animation-delay-5 animated style-Ie44w" id="style-Ie44w">
-    <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/strength-vacter.png" alt="Vacter Image"/>
+    
+<section class="feeddback-part position-r mb-150 overflow-h snipcss0-0-0-1 snipcss-aaBv9">
+  <div class="feeddback-vacter wow fadeInLeft animation-delay-5 animated snipcss0-1-1-2 style-5AFpT" id="style-5AFpT">
+    <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/leaf.png" alt="Vacter Image" class="snipcss0-2-2-3"/>
   </div>
-  <div class="container">
-    <div class="section-heading wow fadeInUp animated style-xMNmJ" id="style-xMNmJ">
-      <h5 class="sub-title">
-        Our Strength
-      </h5>
-      <h2>
-        Why We Are The Best?
-      </h2>
-    </div>
-    <div class="row">
-      <div class="col-xl-3 col-lg-6 col-md-6 strength-box wow fadeInUp animated style-2KGnP" id="style-2KGnP">
-        <div class="strength-icon">
-          <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/all-kinds-of-foods.png" alt="All kinds of Foods"/>
-        </div>
-        <div class="strength-content">
-          <h4 class="strength-title">
-            All kinds of Foods
-          </h4>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and type setting industry.
-          </p>
-        </div>
-      </div>
-      <div class="col-xl-3 col-lg-6 col-md-6 strength-box wow fadeInUp animated style-waSUe" id="style-waSUe">
-        <div class="strength-icon">
-          <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/fresh-foods.png" alt="Fresh Foods"/>
-        </div>
-        <div class="strength-content">
-          <h4 class="strength-title">
-            Fresh Foods
-          </h4>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and type setting industry.
-          </p>
-        </div>
-      </div>
-      <div class="col-xl-3 col-lg-6 col-md-6 strength-box wow fadeInUp animated style-SOrOY" id="style-SOrOY">
-        <div class="strength-icon">
-          <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/best-taste.png" alt="Best Taste"/>
-        </div>
-        <div class="strength-content">
-          <h4 class="strength-title">
-            Best Taste
-          </h4>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and type setting industry.
-          </p>
-        </div>
-      </div>
-      <div class="col-xl-3 col-lg-6 col-md-6 strength-box wow fadeInUp animated style-ori5n" id="style-ori5n">
-        <div class="strength-icon">
-          <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/on-time-delivery.png" alt="On Time Delivery"/>
-        </div>
-        <div class="strength-content">
-          <h4 class="strength-title">
-            On Time Delivery
-          </h4>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and type setting industry.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="feeddback-part position-r mb-150 overflow-h snipcss-EfUK1">
-  <div class="feeddback-vacter wow fadeInLeft animation-delay-5 animated style-FZvzB" id="style-FZvzB">
-    <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/leaf.png" alt="Vacter Image"/>
-  </div>
-  <div class="container">
-    <div class="section-heading wow fadeInUp animated style-RBQTV" id="style-RBQTV">
-      <h5 class="sub-title">
+  <div class="container snipcss0-1-1-4">
+    <div class="section-heading wow fadeInUp animated snipcss0-2-4-5 snipcss0-0-0-1 style-334PJ" id="style-334PJ">
+      <h5 class="sub-title snipcss0-3-5-6 snipcss0-1-1-2">
         Customer Feedback
       </h5>
-      <h2>
+      <h2 class="snipcss0-3-5-7 snipcss0-1-1-3">
         Client Testimonials
       </h2>
     </div>
-    <div class="testimonials-slider owl-carousel wow fadeInUp owl-loaded owl-drag animated style-mprtZ" id="style-mprtZ">
-      <div class="owl-stage-outer">
-        <div class="owl-stage style-SlbMN" id="style-SlbMN">
-          <div class="owl-item cloned style-vV6Y1" id="style-vV6Y1">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-1.jpg" alt="Johan Doe"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Johan Doe
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned style-2FgiQ" id="style-2FgiQ">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-2.jpg" alt="Alex Saanu"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Alex Saanu
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned style-a1a63" id="style-a1a63">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-3.jpg" alt="Jona Leoner"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Jona Leoner
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned style-iUZws" id="style-iUZws">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-4.jpg" alt="Takar Bowa"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Takar Bowa
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item style-XyLpN" id="style-XyLpN">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-1.jpg" alt="Johan Doe"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Johan Doe
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item style-q97wP" id="style-q97wP">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-2.jpg" alt="Alex Saanu"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Alex Saanu
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item style-nWvze" id="style-nWvze">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-3.jpg" alt="Jona Leoner"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Jona Leoner
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item style-EPPgk" id="style-EPPgk">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-4.jpg" alt="Takar Bowa"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Takar Bowa
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item style-nIV6U" id="style-nIV6U">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-1.jpg" alt="Johan Doe"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Johan Doe
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item style-xrmUq" id="style-xrmUq">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-2.jpg" alt="Alex Saanu"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Alex Saanu
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item active style-BwQ1M" id="style-BwQ1M">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-3.jpg" alt="Jona Leoner"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Jona Leoner
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item active style-MxZFp" id="style-MxZFp">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-4.jpg" alt="Takar Bowa"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Takar Bowa
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned active style-p1n5l" id="style-p1n5l">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-1.jpg" alt="Johan Doe"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Johan Doe
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned active style-WA1mE" id="style-WA1mE">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-2.jpg" alt="Alex Saanu"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Alex Saanu
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned style-MV17e" id="style-MV17e">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-3.jpg" alt="Jona Leoner"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Jona Leoner
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned style-CP1Cc" id="style-CP1Cc">
-            <div class="testimonial-box">
-              <div class="client-image">
-                <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/client-4.jpg" alt="Takar Bowa"/>
-              </div>
-              <div class="client-info">
-                <div class="client-name">
-                  Takar Bowa
-                </div>
-                <div class="client-desc">
-                  <p>
-                    “Lorem Ipsum is simply dummy text of the print book. It has survived not only five centuries, but also the leap”
-                  </p>
-                </div>
-                <div class="testimonial-rating">
-                  <ul>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                    <li>
-                      <i class="fa fa-star" aria-hidden="true">
-                      </i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
+    <div>
+
      
+<div className='card5'>
+{activeButtonn === 'FIRST' && (
+          all.map((item, index) => {
+            if(item.brand=="first"){
+               return(
+            <div className='card5__card' key={index}>
+               <div className='ma'>
+                <img className='il' src={item.image} alt="" />
+              </div>
+              <div className='card5__tp'>
+                <p className='p1'>{item.title}</p>
+               
+              </div>
+              <div className='card5__desc'>{item.desc}</div>
+              <div className='card5__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
+              
+              <div class="btt menu-item-order snipcss-DQMsl">
+  
+</div>
+            </div>
+          )}
+            }
+           )
+        )}
+        {activeButtonn === 'TWO' && (
+          all.map((item, index) =>{
+            if(item.brand=="two"){
+     return(
+            <div className='card5__card' key={index}>
+            <div className='ma'>
+             <img className='il' src={item.image} alt="" />
+           </div>
+           <div className='card5__tp'>
+             <p className='p1'>{item.title}</p>
+             
+           </div><div className='card5__desc'>{item.desc}</div>
+           <div className='card5__icon'><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i><i class="fa-solid fa-star" style={{color:"#ffbb00"}}></i></div>
+           
+           <div class="btt menu-item-order snipcss-DQMsl">
+
+</div>
+         </div>
+          )}
+            }
+          )
+      
+        )}
+
+</div>
+
+
+    </div>
+    <div class="testimonials-slider scr owl-carousel wow fadeInUp owl-loaded owl-drag animated snipcss0-2-4-8 style-zc9cR" id="style-zc9cR">
+     
+      <div class="owl-nav snipcss0-3-8-331">
+        <button type="button" role="presentation" class="owl-prev snipcss0-4-331-332"className={activeButtonn === 'TWO' ? 'active' : ''}
+        onClick={() => handleClickk('TWO')} >
+        
+        <i style={{color:'white'}} class="fa-solid fa-chevron-right"></i>
+        </button>
+        <button type="button" role="presentation" class="owl-next snipcss0-4-331-334" className={activeButtonn === 'FIRST' ? 'active' : ''}
+        onClick={() => handleClickk('FIRST')}>
+        
+        <i style={{color:'white'}} class="fa-solid fa-chevron-left"></i>
+        </button>
+      </div>
+      <div class="owl-dots disabled snipcss0-3-8-336">
+      </div>
     </div>
   </div>
 </section>
-    
 
     
 
