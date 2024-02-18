@@ -2,9 +2,11 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import "./Cart.scss"
 import MainContext from '../../../context/context'
+import axios from 'axios';
 const Cart = () => {
   const {handleInc,handleDec,basket,deleteBasket}=useContext(MainContext)
   let totalPrice=0
+  
   return (
     <div>
        <section class="sub-banner bg-yellow overflow-h position-r snipcss-i49qt">
@@ -170,7 +172,7 @@ deleteBasket(item._id)
             </tbody>
           </table>
           <div class="checkout-btn text-center">
-            <a  class="btn-ct btn-small">
+            <a  class="btn-ct btn-small"  >
               Proceed To Checkout
             </a>
           </div>

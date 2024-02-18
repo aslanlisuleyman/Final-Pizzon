@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./CheckOut.scss"
 import { Link } from 'react-router-dom'
+import axios from 'axios';
+import MainContext from '../../../context/context';
 const CheckOut = () => {
+  const [orders, setOrders] = useState([]);
+  const {handleInc,handleDec,basket,deleteBasket}=useContext(MainContext)
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/order").then(res => {
+      setOrders(res.data);
+    });
+  }, []);
   return (
     <div>
       <section class="sub-banner bg-yellow overflow-h position-r snipcss-i49qt">
@@ -130,51 +140,28 @@ const CheckOut = () => {
           </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-12">
-          <div class="your-order">
-            <h4 class="mb-20">
-              Your Order
-            </h4>
-            <div class="product-box">
-              <div class="product-img">
-                <a href="shop-detail.html">
-                  <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/pizza-1.png" alt="Item Image"/>
-                </a>
-              </div>
-              <div class="product-detail">
-                <a href="shop-detail.html" class="pro-title">
-                  Shrimp pizza
-                </a>
-                <div class="qty-box">
-                  <span class="price">
-                    $35.00
-                  </span>
-                  <span class="qty">
-                    × 3
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="product-box">
-              <div class="product-img">
-                <a href="shop-detail.html">
-                  <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/pizza-2.png" alt="Item Image"/>
-                </a>
-              </div>
-              <div class="product-detail">
-                <a href="shop-detail.html" class="pro-title">
-                  Cheese pizza
-                </a>
-                <div class="qty-box">
-                  <span class="price">
-                    $45.00
-                  </span>
-                  <span class="qty">
-                    × 2
-                  </span>
-                </div>
-              </div>
-            </div>
+          
+        <div class="your-order">
+  <h4 class="mb-20">Your Order</h4>
+  
+      <div class="product-box">
+        <div class="product-img">
+          <a href="shop-detail.html">
+            <img  alt="Item Image" />
+          </a>
+        </div>
+        <div class="product-detail">
+          <a href="shop-detail.html" class="pro-title">
+            
+          </a>
+          <div class="qty-box">
+            <span class="price"></span>
+            <span class="qty">× </span>
           </div>
+        </div>
+      </div>
+   
+</div>
           <div class="checkout-total">
             <ul>
               <li>

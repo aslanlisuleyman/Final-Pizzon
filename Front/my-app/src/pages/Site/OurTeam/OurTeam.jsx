@@ -53,25 +53,25 @@ const OurTeam = () => {
       <div class="col-xl-4 col-lg-4 col-md-6">
         <div class="team-box wow fadeInUp animated style-gL36a" id="style-gL36a">
           <div class="team-img position-r">
-            <a href="#">
+            <a href="">
               <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/team-1.jpg" alt="team-1"/>
             </a>
             <div class="team-social">
               <ul>
                 <li>
-                  <a href="#" class="facebook">
+                  <a href="" class="facebook">
                     <i class="fa fa-facebook" aria-hidden="true">
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="twitter">
+                  <a href="" class="twitter">
                     <i class="fa fa-twitter" aria-hidden="true">
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="instagram">
+                  <a href="" class="instagram">
                     <i class="fa fa-instagram" aria-hidden="true">
                     </i>
                   </a>
@@ -81,7 +81,7 @@ const OurTeam = () => {
           </div>
           <div class="team-content">
             <h4>
-              <a href="#">
+              <a href="">
                 Angel Juliya
               </a>
             </h4>
@@ -94,25 +94,25 @@ const OurTeam = () => {
       <div class="col-xl-4 col-lg-4 col-md-6">
         <div class="team-box wow fadeInUp animated style-vFVFz" id="style-vFVFz">
           <div class="team-img position-r">
-            <a href="#">
+            <a href="">
               <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/team-2.jpg" alt="team-2"/>
             </a>
             <div class="team-social">
               <ul>
                 <li>
-                  <a href="#" class="facebook">
+                  <a href="" class="facebook">
                     <i class="fa fa-facebook" aria-hidden="true">
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="twitter">
+                  <a href="" class="twitter">
                     <i class="fa fa-twitter" aria-hidden="true">
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="instagram">
+                  <a href="" class="instagram">
                     <i class="fa fa-instagram" aria-hidden="true">
                     </i>
                   </a>
@@ -122,7 +122,7 @@ const OurTeam = () => {
           </div>
           <div class="team-content">
             <h4>
-              <a href="#">
+              <a href="">
                 Morrish Khan
               </a>
             </h4>
@@ -135,25 +135,25 @@ const OurTeam = () => {
       <div class="col-xl-4 col-lg-4 col-md-6">
         <div class="team-box wow fadeInUp animated style-RxtCG" id="style-RxtCG">
           <div class="team-img position-r">
-            <a href="#">
+            <a href="">
               <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/team-3.jpg" alt="team-3"/>
             </a>
             <div class="team-social">
               <ul>
                 <li>
-                  <a href="#" class="facebook">
+                  <a href="" class="facebook">
                     <i class="fa fa-facebook" aria-hidden="true">
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="twitter">
+                  <a href="" class="twitter">
                     <i class="fa fa-twitter" aria-hidden="true">
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="instagram">
+                  <a href="" class="instagram">
                     <i class="fa fa-instagram" aria-hidden="true">
                     </i>
                   </a>
@@ -163,7 +163,7 @@ const OurTeam = () => {
           </div>
           <div class="team-content">
             <h4>
-              <a href="#">
+              <a href="">
                 Willium John
               </a>
             </h4>
@@ -176,25 +176,25 @@ const OurTeam = () => {
       <div class="col-xl-4 col-lg-4 col-md-6">
         <div class="team-box wow fadeInUp animated style-Hes59" id="style-Hes59">
           <div class="team-img position-r">
-            <a href="#">
+            <a href="">
               <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/team-4.jpg" alt="team-4"/>
             </a>
             <div class="team-social">
               <ul>
                 <li>
-                  <a href="#" class="facebook">
+                  <a href="" class="facebook">
                     <i class="fa fa-facebook" aria-hidden="true">
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="twitter">
+                  <a href="" class="twitter">
                     <i class="fa fa-twitter" aria-hidden="true">
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="instagram">
+                  <a href="" class="instagram">
                     <i class="fa fa-instagram" aria-hidden="true">
                     </i>
                   </a>
@@ -204,7 +204,7 @@ const OurTeam = () => {
           </div>
           <div class="team-content">
             <h4>
-              <a href="#">
+              <a href="">
                 Millana kamal
               </a>
             </h4>
@@ -217,25 +217,25 @@ const OurTeam = () => {
       <div class="col-xl-4 col-lg-4 col-md-6">
         <div class="team-box wow fadeInUp animated style-Z9Fcd" id="style-Z9Fcd">
           <div class="team-img position-r">
-            <a href="#">
+            <a href="">
               <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/team-5.jpg" alt="team-5"/>
             </a>
             <div class="team-social">
               <ul>
                 <li>
-                  <a href="#" class="facebook">
+                  <a href="" class="facebook">
                     <i class="fa fa-facebook" aria-hidden="true">
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="twitter">
+                  <a href="" class="twitter">
                     <i class="fa fa-twitter" aria-hidden="true">
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="instagram">
+                  <a href="" class="instagram">
                     <i class="fa fa-instagram" aria-hidden="true">
                     </i>
                   </a>
@@ -245,7 +245,7 @@ const OurTeam = () => {
           </div>
           <div class="team-content">
             <h4>
-              <a href="#">
+              <a href="">
                 Robert Smith
               </a>
             </h4>
@@ -258,25 +258,25 @@ const OurTeam = () => {
       <div class="col-xl-4 col-lg-4 col-md-6">
         <div class="team-box wow fadeInUp animated style-6z8Uh" id="style-6z8Uh">
           <div class="team-img position-r">
-            <a href="#">
+            <a href="">
               <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/team-6.jpg" alt="team-6"/>
             </a>
             <div class="team-social">
               <ul>
                 <li>
-                  <a href="#" class="facebook">
+                  <a href="" class="facebook">
                     <i class="fa fa-facebook" aria-hidden="true">
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="twitter">
+                  <a href="" class="twitter">
                     <i class="fa fa-twitter" aria-hidden="true">
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="instagram">
+                  <a href="" class="instagram">
                     <i class="fa fa-instagram" aria-hidden="true">
                     </i>
                   </a>
@@ -286,7 +286,7 @@ const OurTeam = () => {
           </div>
           <div class="team-content">
             <h4>
-              <a href="#">
+              <a href="">
                 Ninan Michal
               </a>
             </h4>

@@ -131,9 +131,9 @@
   flex-direction: column;
   gap: 5px;
   align-items: flex-start;
-  height: 200px;
+  height: 192px;
   position: absolute;
-  bottom: 15%;
+  bottom: 0%;
   right: 0%;
   width: 200px;
   justify-content: flex-start;
@@ -159,7 +159,7 @@
   width: 200px;
   background-color: #fbb200;
   border-radius: 15px;
-  height: 200px;
+  height: 155px;
   display: none;
   margin-top: 40px;
   position: absolute;
@@ -277,7 +277,25 @@
 
 
 
-
+.overlay{
+  z-index: 999999999999999999999;
+  position: absolute;
+  width: 210vh;
+  background-color: #fffaed;
+  height: 1000vh;
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+  .loading-spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  img{
+    height: 350px;
+    margin-top: 14%;
+  }
+}
 
 .blog{
   display: flex;
@@ -290,7 +308,7 @@
   flex-direction: column;
   gap: 5px;
   align-items: flex-start;
-  height: 200px;
+  height: 192px;
   position: absolute;
   bottom: 0%;
   right: 0%;

@@ -8,6 +8,12 @@ const HomeStatic2 = () => {
   const handleClick = (button) => {
     setActiveButton(button);
   };
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
   return (
     <div className='hs2'>
 
@@ -40,7 +46,7 @@ const HomeStatic2 = () => {
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
             </p>
           </div>
-          <Link to="/AboutUs" class="btn-ct right-arrow">
+          <Link onClick={scrollToTop} to="/AboutUs" class="btn-ct right-arrow">
             Read More 
             <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/right.png" alt="right icon"/>
           </Link>

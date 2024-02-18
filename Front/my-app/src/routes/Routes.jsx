@@ -12,7 +12,7 @@ import BlogLeft from '../pages/Site/BlogLeft/BlogLeft'
 import BookNow from '../pages/Site/BookNow/BookNow'
 import CheckOut from '../pages/Site/CheckOut/CheckOut'
 import Contact from '../pages/Site/Contact/Contact'
-import ShopDetail from '../pages/Site/ShopDetail/ShopDetail'
+
 import ShopList from '../pages/Site/ShopList/ShopList'
 import SiteRoot from '../pages/Site/SiteRoot'
 import Register from '../pages/Site/Register/Register'
@@ -62,9 +62,6 @@ const Routes = [{
     },{
         path:'Contact',
         element:<Contact/>
-    },{
-        path:'ShopDetail',
-        element:<ShopDetail/>
     },{
         path:'ShopList',
         element:<ShopList/>

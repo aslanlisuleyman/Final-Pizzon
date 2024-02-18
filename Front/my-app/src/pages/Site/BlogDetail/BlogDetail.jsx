@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import "./BlogDetail.scss"
 const BlogDetail = () => {
   return (
     <div>
@@ -45,6 +46,40 @@ const BlogDetail = () => {
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/banner-leaf.png" alt="banner-leaf"/>
   </div>
 </section>
+
+<div className='blogdetail'>
+
+<div className='blogimg'>
+  <div>
+    <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/blog-2.jpg" alt="" />
+  </div>
+  <div><img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/blog-3.jpg" alt="" /></div>
+  <div><img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/blog-4.jpg" alt="" /></div>
+  <div><img src="https://hips.hearstapps.com/hmg-prod/images/delish-homemade-pizza-horizontal-1542312378.png?crop=0.8893333333333334xw:1xh;center,top&resize=1200:*" alt="" /></div>
+</div>
+<div className='blogdes'><h5>
+ <span>Pizzon</span> <br /> <br />
+Aliqum mullam blandit tempor sapien gravida donec ipsum, at porta justo. Velna vitae auctor congue magna nihil impedit ligula risus. Mauris donec ociis et magnis sapien etiam sapien sagittis congue tempor a gravida donec enim ipsum porta justo integer at odio velna. Maecenas gravida porttitor nunc, quis vehicula magna at luctus tempor. Quisque vel laoreet turpis. Urna augue, viverra a augue eget, dictum tempor diam. Sed pulvinar consectetur nibh, vel imperdiet dui varius viverra. Pellentesque ac massa lorem fusce eu cursus fusce <br /><br />
+
+
+Donec dolor suscipit magna vehicula impedit ligula risus. Mauris donec ociis et magnis sapien etiam sapien sem sagittis congue tempor gravida porttitor nunc, quis vehicula magna. Placerat varius consectetur nibh, vel imperdiet dui varius viverra donec ociis et magnis
+
+Aliquet Tempus Tempor Gravida
+Cubilia laoreet augue egestas cursus magna nihil impedit ligula risus. Mauris donec ociis et 
+  </h5></div>
+<div  className='blogimg'>
+<div>
+    <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/blog-1.jpg" alt="" />
+  </div>
+  <div><img src="https://www.simplyrecipes.com/thmb/KRw_r32s4gQeOX-d07NWY1OlOFk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Homemade-Pizza-Dough-Lead-Shot-1c-c2b1885d27d4481c9cfe6f6286a64342.jpg" alt="" /></div>
+  <div><img src="https://www.coles.com.au/content/dam/coles/cusp/recipes-inspiration/pvx/Sep-PVX-Meat-Lovers-Pizza-976x549.jpg" alt="" /></div>
+  <div><img src="https://www.youtubers.cooking/wp-content/uploads/2022/04/pizza-youtubers-cooking.jpg" alt="" /></div>
+</div>
+
+
+
+</div>
+
     </div>
   )
 }

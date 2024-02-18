@@ -3,6 +3,7 @@ import Routes from './routes/Routes';
 import toast, { Toaster } from 'react-hot-toast';
 import MainContext from './context/context';
 import { useEffect, useState } from 'react';
+import ScrollToTop from './ScrollToTop';
 import axios from "axios"
 const router = createBrowserRouter(Routes);
 function App() {
@@ -143,7 +144,9 @@ function App() {
     <>
     
  <MainContext.Provider value={datas}>
+
       <RouterProvider router={router} />
+      
     </MainContext.Provider>
     <Toaster />
     

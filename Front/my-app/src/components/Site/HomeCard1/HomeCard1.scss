@@ -194,14 +194,18 @@ h2 {
 .card1{
     display: flex;
     justify-content: center;
-    
+    overflow: hidden;
     flex-wrap: wrap;
     gap: 40px;
     .il{
         margin-left: 22px;
         width: 350px;
-        height: 350px;
+        height: 340px;
+        overflow: hidden;
     }
+}
+.card1__card{
+    overflow: hidden;
 }
 
 
@@ -210,7 +214,7 @@ h2 {
     // justify-content: space-around;
     gap: 35%;
     padding-left: 15px;
-    padding-top: 25px;
+    padding-top: 44px;
     .p2{
         color: #f22e3e;
         font-size: 22px;

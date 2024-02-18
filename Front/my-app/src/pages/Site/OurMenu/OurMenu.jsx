@@ -13,6 +13,12 @@ const OurMenu = () => {
   const handleClickk = (button) => {
     setActiveButtonn(button);
   };
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
   return (
     <div>
       <section class="sub-banner bg-yellow overflow-h position-r snipcss-i49qt">
@@ -112,9 +118,9 @@ const OurMenu = () => {
             if(item.brand=="all"){
                return(
             <div className='card2__card' key={index}>
-               <div className='ma'>
+               <Link onClick={scrollToTop} to={`/${item._id}`} className='ma'>
                 <img className='il' src={item.image} alt="" />
-              </div>
+              </Link>
               <div className='card2__tp'>
                 <p className='p1'>{item.title}</p>
                 <p className='p2'>${item.price}.00</p>
@@ -139,9 +145,9 @@ const OurMenu = () => {
             if(item.brand=="pizza"){
      return(
             <div className='card2__card' key={index}>
-            <div className='ma'>
+            <Link onClick={scrollToTop} to={`/${item._id}`} className='ma'>
              <img className='il' src={item.image} alt="" />
-           </div>
+           </Link>
            <div className='card2__tp'>
              <p className='p1'>{item.title}</p>
              <p className='p2'>${item.price}.00</p>
@@ -167,9 +173,9 @@ const OurMenu = () => {
             if(item.brand=="slides"){
                return(
             <div className='card2__card' key={index}>
-               <div className='ma'>
+               <Link onClick={scrollToTop} to={`/${item._id}`} className='ma'>
                 <img className='il' src={item.image} alt="" />
-              </div>
+              </Link>
               <div className='card2__tp'>
                 <p className='p1'>{item.title}</p>
                 <p className='p2'>${item.price}.00</p>
@@ -194,9 +200,9 @@ const OurMenu = () => {
             if(item.brand=="offers"){
                return(
             <div className='card2__card' key={index}>
-               <div className='ma'>
+               <Link onClick={scrollToTop} to={`/${item._id}`} className='ma'>
                 <img className='il' src={item.image} alt="" />
-              </div>
+              </Link>
               <div className='card2__tp'>
                 <p className='p1'>{item.title}</p>
                 <p className='p2'>${item.price}.00</p>
@@ -221,9 +227,9 @@ const OurMenu = () => {
             if(item.brand=="pasta"){
                return(
             <div className='card2__card' key={index}>
-               <div className='ma'>
+               <Link onClick={scrollToTop} to={`/${item._id}`} className='ma'>
                 <img className='il' src={item.image} alt="" />
-              </div>
+              </Link>
               <div className='card2__tp'>
                 <p className='p1'>{item.title}</p>
                 <p className='p2'>${item.price}.00</p>

@@ -1,6 +1,13 @@
 import React from 'react'
 import "./HomeStatic1.scss"
+import { Link } from 'react-router-dom'
 const HomeStatic1 = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
   return (
     <div className='hs1'>
     
@@ -22,10 +29,10 @@ const HomeStatic1 = () => {
               Lorem Ipsum is simply dummy text of the <br /> printing and typesetting industry.
             </p>
           </div>
-          <a href="shop-list.html" class="btn-ct btn-large snipcss0-4-8-13">
+          <Link onClick={scrollToTop} to="/Ourmenu" class="btn-ct btn-large snipcss0-4-8-13">
             <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-5-13-14"/>
-            Order Now
-          </a>
+            Our Menu
+          </Link>
         </div>
       </div>
       <div class="col-xl-7 col-lg-6 col-md-6 home-right-img snipcss0-2-6-15">

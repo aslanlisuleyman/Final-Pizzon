@@ -1,6 +1,13 @@
 import React from 'react'
 import "./HomeStatic4.scss"
+import { Link } from 'react-router-dom'
 const HomeStatic4 = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
   return (
     <div className='last'>
         <div class="container snipcss-74PaY">
@@ -16,9 +23,9 @@ const HomeStatic4 = () => {
     <div class=" row__one snipcss0-0-0-1">
       <div class="blog-singel-list wow fadeInLeft animated snipcss0-1-1-2 style-9Jhqz" id="style-9Jhqz">
         <div class="blog-img snipcss0-2-2-3">
-          <a href="blog-detail.html" class="snipcss0-3-3-4">
+          <Link onClick={scrollToTop} to="/BlogDetail" class="snipcss0-3-3-4">
             <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/blog-1.jpg" alt="Blog Image" class="snipcss0-4-4-5"/>
-          </a>
+          </Link>
         </div>
         <div class="blog-list-content snipcss0-2-2-6">
           <div class="blog-date snipcss0-3-6-7">
@@ -27,9 +34,9 @@ const HomeStatic4 = () => {
             </span>
           </div>
           <h5 class="blog-title snipcss0-3-6-9">
-            <a href="blog-detail.html" class="snipcss0-4-9-10">
+            <Link onClick={scrollToTop} to="/BlogDetail" class="snipcss0-4-9-10">
               How to keep fear from ruining your art business with confident
-            </a>
+            </Link>
           </h5>
           <div class="blog-author snipcss0-3-6-11">
             <div class="author snipcss0-4-11-12">
@@ -48,10 +55,10 @@ const HomeStatic4 = () => {
               </div>
             </div>
             <div class="read-link snipcss0-4-11-19">
-              <a href="blog-detail.html" class="read-more snipcss0-5-19-20">
+              <Link onClick={scrollToTop} to="/BlogDetail" class="read-more snipcss0-5-19-20">
                 Read More 
                 <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/right-arrow-red.png" alt="Right Arrow" class="snipcss0-6-20-21"/>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -63,9 +70,9 @@ const HomeStatic4 = () => {
           <div class=" blog-list-roww align-items-center">
             <div className='blog_img'>
               <div class="blog-img">
-                <a href="blog-detail.html">
+                <Link onClick={scrollToTop} to="/BlogDetail">
                   <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/blog-2.jpg" alt="Blog Image"/>
-                </a>
+                </Link>
               </div>
             </div>
             <div >
@@ -75,14 +82,14 @@ const HomeStatic4 = () => {
                 </span>
               </div>
               <h6 class="blog-title">
-                <a href="blog-detail.html">
+                <Link onClick={scrollToTop} to="/BlogDetail">
                   How to keep fear from ruining your art business with confident
-                </a>
+                </Link>
               </h6>
-              <a href="blog-detail.html" class="read-more">
+              <Link onClick={scrollToTop} to="/BlogDetail" class="read-more">
                 Read More 
                 <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/right-arrow-red.png" alt="Right Arrow"/>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -90,9 +97,9 @@ const HomeStatic4 = () => {
           <div class=" blog-list-roww align-items-center">
             <div >
               <div class="blog-img">
-                <a href="blog-detail.html">
+                <Link onClick={scrollToTop} to="/BlogDetail">
                   <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/blog-3.jpg" alt="Blog Image"/>
-                </a>
+                </Link>
               </div>
             </div>
             <div >
@@ -102,14 +109,14 @@ const HomeStatic4 = () => {
                 </span>
               </div>
               <h6 class="blog-title">
-                <a href="blog-detail.html">
+                <Link onClick={scrollToTop} to="/BlogDetail">
                   How to keep fear from ruining your art business with confident
-                </a>
+                </Link>
               </h6>
-              <a href="blog-detail.html" class="read-more">
+              <Link onClick={scrollToTop} to="/BlogDetail" class="read-more">
                 Read More 
                 <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/right-arrow-red.png" alt="Right Arrow"/>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -117,9 +124,9 @@ const HomeStatic4 = () => {
           <div class=" blog-list-roww align-items-center">
             <div >
               <div class="blog-img">
-                <a href="blog-detail.html">
+                <Link onClick={scrollToTop} to="/BlogDetail">
                   <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/blog-4.jpg" alt="Blog Image"/>
-                </a>
+                </Link>
               </div>
             </div>
             <div >
@@ -129,14 +136,14 @@ const HomeStatic4 = () => {
                 </span>
               </div>
               <h6 class="blog-title">
-                <a href="blog-detail.html">
+                <Link onClick={scrollToTop} to="/BlogDetail">
                   How to keep fear from ruining your art business with confident
-                </a>
+                </Link>
               </h6>
-              <a href="blog-detail.html" class="read-more">
+              <Link onClick={scrollToTop} to="/BlogDetail"  class="read-more">
                 Read More 
                 <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/right-arrow-red.png" alt="Right Arrow"/>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

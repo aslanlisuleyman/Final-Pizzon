@@ -370,7 +370,9 @@ p:last-child {
 } 
 
 
-
+.hs1 {
+    animation: move 0.5s ease;
+}
 
 // Add this style at the end of your existing SCSS file
 @keyframes rotateAndScale {

@@ -1,6 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 const BlogLeft = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
   return (
     <div>
       <section class="sub-banner bg-yellow overflow-h position-r snipcss-i49qt">
@@ -20,7 +26,7 @@ const BlogLeft = () => {
         <div class="bread-crumb wow fadeInRight animated style-5pgFQ" id="style-5pgFQ">
           <ul>
             <li>
-              <Link to="/">
+              <Link onClick={scrollToTop} to="/">
                 Home
               </Link>
             </li>
@@ -58,7 +64,7 @@ const BlogLeft = () => {
             </h2>
             <ul>
               <li>
-                <Link to="/ShopList">
+                <Link onClick={scrollToTop} to="/ShopList">
                   <span class="cat-name">
                     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/right-arrow-red.png" alt="Right Arrow"/>
                     Hamburger
@@ -69,7 +75,7 @@ const BlogLeft = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/ShopList">
+                <Link onClick={scrollToTop} to="/ShopList">
                   <span class="cat-name">
                     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/right-arrow-red.png" alt="Right Arrow"/>
                     Pizza
@@ -80,7 +86,7 @@ const BlogLeft = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/ShopList">
+                <Link onClick={scrollToTop} to="/ShopList">
                   <span class="cat-name">
                     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/right-arrow-red.png" alt="Right Arrow"/>
                     Offer
@@ -91,7 +97,7 @@ const BlogLeft = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/ShopList">
+                <Link onClick={scrollToTop} to="/ShopList">
                   <span class="cat-name">
                     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/right-arrow-red.png" alt="Right Arrow"/>
                     Pasta
@@ -109,47 +115,47 @@ const BlogLeft = () => {
             </h2>
             <div class="news-box">
               <div class="news-img">
-                <a href="blog-detail.html">
+                <Link onClick={scrollToTop} to="/BlogDetail">
                   <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/recent-1.jpg" alt="recent-1"/>
-                </a>
+                </Link>
               </div>
               <div class="news-detail">
                 <span class="date">
                   07 Mar 2022
                 </span>
-                <a href="blog-detail.html" class="news-title">
+                <Link onClick={scrollToTop} to="/BlogDetail" class="news-title">
                   How to keep fear from your art business
-                </a>
+                </Link>
               </div>
             </div>
             <div class="news-box">
               <div class="news-img">
-                <a href="blog-detail.html">
+                <Link onClick={scrollToTop} to="/BlogDetail">
                   <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/recent-2.jpg" alt="recent-2"/>
-                </a>
+                </Link>
               </div>
               <div class="news-detail">
                 <span class="date">
                   07 Mar 2022
                 </span>
-                <a href="blog-detail.html" class="news-title">
+                <Link onClick={scrollToTop} to="/BlogDetail" class="news-title">
                   How to keep fear from your art business
-                </a>
+                </Link>
               </div>
             </div>
             <div class="news-box">
               <div class="news-img">
-                <a href="blog-detail.html">
+                <Link onClick={scrollToTop} to="/BlogDetail">
                   <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/recent-3.jpg" alt="recent-3"/>
-                </a>
+                </Link>
               </div>
               <div class="news-detail">
                 <span class="date">
                   07 Mar 2022
                 </span>
-                <a href="blog-detail.html" class="news-title">
+                <Link onClick={scrollToTop} to="/BlogDetail" class="news-title">
                   How to keep fear from your art business
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -185,25 +191,25 @@ const BlogLeft = () => {
             </h2>
             <ul class="footer-social">
               <li>
-                <a href="#" class="facebook">
+                <a href="" class="facebook">
                   <i class="fa fa-facebook" aria-hidden="true">
                   </i>
                 </a>
               </li>
               <li>
-                <a href="#" class="pinterest">
+                <a href="" class="pinterest">
                   <i class="fa fa-pinterest-p" aria-hidden="true">
                   </i>
                 </a>
               </li>
               <li>
-                <a href="#" class="twitter">
+                <a href="" class="twitter">
                   <i class="fa fa-twitter" aria-hidden="true">
                   </i>
                 </a>
               </li>
               <li>
-                <a href="#" class="instagram">
+                <a href="" class="instagram">
                   <i class="fa fa-instagram" aria-hidden="true">
                   </i>
                 </a>
@@ -216,9 +222,9 @@ const BlogLeft = () => {
         <div class="blog-list-part wow fadeInLeft animated style-9vyBJ" id="style-9vyBJ">
           <div class="blog-singel-list">
             <div class="br blog-img">
-              <a href="blog-detail.html">
+              <Link onClick={scrollToTop} to="/BlogDetail">
                 <img className='br' src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/blog-list-1.jpg" alt="blog-list-1"/>
-              </a>
+              </Link>
             </div>
             <div class="blog-list-content">
               <div class="blog-date">
@@ -227,21 +233,21 @@ const BlogLeft = () => {
                 </span>
               </div>
               <h3 class="blog-title">
-                <a href="blog-detail.html">
+                <Link onClick={scrollToTop} to="/BlogDetail">
                   How to keep fear from ruining your art business with confident
-                </a>
+                </Link>
               </h3>
-              <a href="blog-detail.html" class="read-more">
+              <Link onClick={scrollToTop} to="/BlogDetail" class="read-more">
                 Read More 
                 <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/right-arrow-red.png" alt="Right Arrow"/>
-              </a>
+              </Link>
             </div>
           </div>
           <div class="blog-singel-list">
             <div class=" br blog-img">
-              <a href="blog-detail.html">
+              <Link onClick={scrollToTop} to="/BlogDetail">
                 <img className='br' src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/blog-list-2.jpg" alt="blog-list-2"/>
-              </a>
+              </Link>
             </div>
             <div class="blog-list-content">
               <div class="blog-date">
@@ -250,21 +256,21 @@ const BlogLeft = () => {
                 </span>
               </div>
               <h3 class="blog-title">
-                <a href="blog-detail.html">
+                <Link onClick={scrollToTop} to="/BlogDetail">
                   How to keep fear from ruining your art business with confident
-                </a>
+                </Link>
               </h3>
-              <a href="blog-detail.html" class="read-more">
+              <Link onClick={scrollToTop} to="/BlogDetail" class="read-more">
                 Read More 
                 <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/right-arrow-red.png" alt="Right Arrow"/>
-              </a>
+              </Link>
             </div>
           </div>
           <div class="blog-singel-list">
             <div class="br blog-img">
-              <a href="blog-detail.html">
+              <Link onClick={scrollToTop} to="/BlogDetail">
                 <img className='br' src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/blog-list-3.jpg" alt="blog-list-3"/>
-              </a>
+              </Link>
             </div>
             <div class="blog-list-content">
               <div class="blog-date">
@@ -273,14 +279,14 @@ const BlogLeft = () => {
                 </span>
               </div>
               <h3 class="blog-title">
-                <a href="blog-detail.html">
+                <Link onClick={scrollToTop} to="/BlogDetail">
                   How to keep fear from ruining your art business with confident
-                </a>
+                </Link>
               </h3>
-              <a href="blog-detail.html" class="read-more">
+              <Link to="/BlogDetail" class="read-more">
                 Read More 
                 <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/right-arrow-red.png" alt="Right Arrow"/>
-              </a>
+              </Link>
             </div>
           </div>
           <div class="custom-pagination text-center">
@@ -291,7 +297,7 @@ const BlogLeft = () => {
                 </a>
               </li>
               <li>
-                <Link to="/BlogRight">
+                <Link onClick={scrollToTop} to="/BlogRight">
                   2
                 </Link>
               </li>

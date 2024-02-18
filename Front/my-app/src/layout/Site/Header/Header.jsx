@@ -2,17 +2,45 @@
 
 
 import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+
 import "./Header.scss";
+import { Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button, Offcanvas } from 'react-bootstrap';
 import MainContext from '../../../context/context';
 
 const Header = () => {
+  // const scrollToTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth"
+  //   });
+  // }
   const {handleInc,handleDec,basket,deleteBasket,homeCounter}=useContext(MainContext)
   let totalPrice=0
   const [isFixed, setIsFixed] = useState(false);
   const [show, setShow] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
+  const handleLinkClick = (destination) => {
+    setIsLoading(true); // Link tıklandığında yükleniyor durumunu true yap
+
+    // İstediğiniz zamanlayıcıyı buraya ekleyebilirsiniz, örneğin 1 saniye sonra setLoading(false) gibi.
+
+    // Ancak şu an için sadece örnekte kullanılan bir setTimeOut ekleyeceğim.
+    setTimeout(() => {
+      setIsLoading(false); // Simüle edilen yükleme tamamlandığında yükleniyor durumunu false yap
+      navigate(destination); // İstenilen sayfaya yönlendirme yapabilirsiniz.
+      
+
+    }, 4000);
+   window.scrollTo(0,0)
+     ;
+    
+   
+   
+  };
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -35,6 +63,13 @@ const Header = () => {
 
   return (
     <div className={`header ${isFixed ? 'fixed' : ''}`}>
+      
+       <div className="overlay" style={{ display: isLoading ? 'block' : 'none' }}>
+        <div className="loading-spinner">
+          <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/preloader.svg" alt="Loading" />
+          
+        </div>
+      </div>
       <div className='header__left'>
         <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/logo.png" alt="" />
       </div>
@@ -49,7 +84,7 @@ const Header = () => {
       </div>
       <div className='header__right'>
         <ul>
-          <Link className='link' to="/">HOME</Link>
+          <Link onClick={() => handleLinkClick("/")} className='link' to="/">HOME</Link>
 
           <div className='shop'>
 
@@ -57,10 +92,10 @@ const Header = () => {
            
           <div className='shop__right'>
             <ul>
-              <li><Link to="/ShopList" className='li'>SHOP LIST</Link></li>
-              <li><Link to="/ShopDetail" className='li'>SHOP DETAIL</Link></li>
-              <li><Link to="/Cart" className='li'>CART</Link></li>
-              <li><Link to="/CheckOut" className='li'>CHECKOUT</Link></li>
+              <li><Link onClick={() => handleLinkClick("/ShopList")} to="/ShopList" className='li'>SHOP LIST</Link></li>
+              
+              <li><Link onClick={() => handleLinkClick("/Cart")} to="/Cart" className='li'>CART</Link></li>
+              <li><Link onClick={() => handleLinkClick("/CheckOut")} to="/CheckOut" className='li'>CHECKOUT</Link></li>
             </ul>
           </div>
          
@@ -72,11 +107,11 @@ const Header = () => {
            
           <div className='pages__right'>
             <ul>
-              <li><Link to="/AboutUs" className='li'>ABOUT US</Link></li>
-              <li><Link to="/OurMenu" className='li'>OUR MENU</Link></li>
-              <li><Link to="/OurTeam" className='li'>OUR TEAM</Link></li>
-              <li><Link to="/BookNow" className='li'>BOOK NOW</Link></li>
-              <li><Link to="/ErrorPage" className='li'>404 PAGE</Link></li>
+              <li><Link onClick={() => handleLinkClick("/AboutUs")} to="/AboutUs" className='li'>ABOUT US</Link></li>
+              <li><Link onClick={() => handleLinkClick("/OurMenu")} to="/OurMenu" className='li'>OUR MENU</Link></li>
+              <li><Link onClick={() => handleLinkClick("/OurTeam")} to="/OurTeam" className='li'>OUR TEAM</Link></li>
+              <li><Link onClick={() => handleLinkClick("/BookNow")} to="/BookNow" className='li'>BOOK NOW</Link></li>
+              <li><Link onClick={() => handleLinkClick("/ErrorPage")} to="/ErrorPage" className='li'>404 PAGE</Link></li>
             </ul>
           </div>
          
@@ -87,17 +122,17 @@ const Header = () => {
 
 <div className='blog__right'>
  <ul>
-   <li><Link to="/BlogRight" className='li'>BLOG RIGHT</Link></li>
-   <li><Link to="/BlogLeft" className='li'>BLOG LEFT</Link></li>
-   <li><Link to="/BlogDetail" className='li'>BLOG DETAIL</Link></li>
+   <li><Link onClick={() => handleLinkClick("/BlogRight")} to="/BlogRight" className='li'>BLOG RIGHT</Link></li>
+   <li><Link onClick={() => handleLinkClick("/BlogLeft")} to="/BlogLeft" className='li'>BLOG LEFT</Link></li>
+   <li><Link onClick={() => handleLinkClick("/BlogDetail")} to="/BlogDetail" className='li'>BLOG DETAIL</Link></li>
 
  </ul>
 </div>
 
 </div>
-          <Link className='link' to="/Contact">CONTACT</Link>
-          <Link className='link' to="/Register">REGISTER</Link>
-          <Link className='link' to="/Login">LOGIN</Link>
+          <Link onClick={() => handleLinkClick("/Contact")} className='link' to="/Contact">CONTACT</Link>
+          <Link onClick={() => handleLinkClick("/Register")} className='link' to="/Register">REGISTER</Link>
+          <Link onClick={() => handleLinkClick("/Login")} className='link' to="/Login">LOGIN</Link>
           
             <li style={{color:"black"}} className='link bs' variant="primary" onClick={handleShow}>
             <i className="fa-solid fa-cart-shopping"></i><p style={{color:'white'}}>{homeCounter}</p>
@@ -117,7 +152,7 @@ const Header = () => {
           return(
             <div  class="cart-item snipcss0-0-0-1 ofi snipcss0-4-7-8 snipcss-j4Hh1">
   <div class="item-image snipcss0-1-1-2 snipcss0-5-8-9">
-    <a href="shop-detail.html" class="snipcss0-2-2-3 snipcss0-6-9-10">
+    <a  class="snipcss0-2-2-3 snipcss0-6-9-10">
       <img src={item.image} alt="Item Image" class="snipcss0-3-3-4 oi snipcss0-7-10-11"/>
     </a>
   </div>
@@ -177,9 +212,9 @@ deleteBasket(item._id)
   <div class="cart-button snipcss0-2-56-62">
     <ul class="snipcss0-3-62-63">
       <li class="snipcss0-4-63-64">
-        <a  class="btn-ct btn-small snipcss0-5-64-65">
+        <Link to="/Cart"  class="btn-ct btn-small snipcss0-5-64-65">
           View Cart
-        </a>
+        </Link>
       </li>
       <li class="snipcss0-4-63-66">
         <a  class="btn-ct btn-small subtotal snipcss0-5-66-67">

@@ -1,8 +1,15 @@
 import React, { useContext } from 'react'
 import "./HomeCard1.scss"
 import MainContext from '../../../context/context'
+import { Link } from 'react-router-dom'
 const HomeCard1 = () => {
     const {filter,addBasket}=useContext(MainContext)
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    };
     
   return (
     <div className='homecard1'>
@@ -22,9 +29,9 @@ const HomeCard1 = () => {
       if(item.brand=="pizza"){
         return(
             <div className='card1__card' key={index}>
-              <div className='ma'>
+              <Link  onClick={scrollToTop} to={`/${item._id}`} className='ma'>
                 <img className='il' src={item.image} alt="" />
-              </div>
+              </Link>
               <div className='card1__tp'>
                 <p className='p1'>{item.title}</p>
                 <p className='p2'>${item.price}.00</p>
