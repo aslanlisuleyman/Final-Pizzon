@@ -17,6 +17,10 @@ import ShopList from '../pages/Site/ShopList/ShopList'
 import SiteRoot from '../pages/Site/SiteRoot'
 import Register from '../pages/Site/Register/Register'
 import Login from '../pages/Site/Login/Login'
+import Dashboard from '../pages/Admin/Dashboard/Dashboard'
+import Edit from '../pages/Admin/Edit/Edit'
+import AdminRoot from '../pages/Admin/AdminRoot'
+import Order from '../pages/Admin/Order/Order'
 
 
 
@@ -79,19 +83,19 @@ const Routes = [{
         element:<Detail/>
     },{}]
 
-// },{
-//     path:'/admin',
-//     element:<AdminRoot/>,
-//     children:[{
-//         path:'',
-//         element:<Books/>
-//     },{
-//         path:'Books',
-//         element:<Books/>
-//     },{
-//         path:'Orders',
-//         element:<Orders/>
-//     }]
+},{
+    path:'/admin',
+    element:<AdminRoot/>,
+    children:[{
+        path:'',
+        element:<Dashboard/>
+    },{
+        path:'Edit',
+        element:<Edit/>
+    },{
+        path:'Order',
+        element:<Order/>
+    }]
 }]
 
 export default Routes

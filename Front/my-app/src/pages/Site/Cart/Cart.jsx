@@ -6,6 +6,21 @@ import axios from 'axios';
 const Cart = () => {
   const {handleInc,handleDec,basket,deleteBasket}=useContext(MainContext)
   let totalPrice=0
+
+  
+ const createOrder=()=>{
+  const orderData = {
+    customerName: "John Doe", // You can replace with dynamic data
+    items: basket.map(item => item._id), // Assuming items array contains IDs
+    totalPrice: totalPrice,
+    status: 'Pending' // Or any default status
+};
+  
+  
+  axios.post("http://localhost:3000/order",orderData).then(res=>{
+    console.log(res)
+  })
+ }
   
   return (
     <div>
@@ -172,7 +187,7 @@ deleteBasket(item._id)
             </tbody>
           </table>
           <div class="checkout-btn text-center">
-            <a  class="btn-ct btn-small"  >
+            <a onClick={createOrder}  class="btn-ct btn-small"  >
               Proceed To Checkout
             </a>
           </div>

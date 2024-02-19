@@ -5,13 +5,14 @@ import axios from 'axios';
 import MainContext from '../../../context/context';
 const CheckOut = () => {
   const [orders, setOrders] = useState([]);
+  
   const {handleInc,handleDec,basket,deleteBasket}=useContext(MainContext)
-
   useEffect(() => {
     axios.get("http://localhost:3000/order").then(res => {
       setOrders(res.data);
     });
-  }, []);
+  }, [])
+ 
   return (
     <div>
       <section class="sub-banner bg-yellow overflow-h position-r snipcss-i49qt">
@@ -142,26 +143,34 @@ const CheckOut = () => {
         <div class="col-xl-4 col-lg-4 col-md-12">
           
         <div class="your-order">
-  <h4 class="mb-20">Your Order</h4>
-  
-      <div class="product-box">
-        <div class="product-img">
-          <a href="shop-detail.html">
-            <img  alt="Item Image" />
-          </a>
-        </div>
-        <div class="product-detail">
-          <a href="shop-detail.html" class="pro-title">
-            
-          </a>
-          <div class="qty-box">
-            <span class="price"></span>
-            <span class="qty">× </span>
+  {orders.map((order, index) => {
+    return (
+      <div key={index}>
+        <h4 class="mb-20">Your Order</h4>
+        {order.items.map((item, itemIndex) => (
+          <div key={itemIndex} class="product-box">
+            <div class="product-img">
+              <a href="shop-detail.html">
+                <img src={item.image} alt="Item Image" />
+              </a>
+            </div>
+            <div class="product-detail">
+              <a href="shop-detail.html" class="pro-title">
+                {item.title}
+              </a>
+              <div class="qty-box">
+                <span class="price">${item.price}.00</span>
+                <span class="qty">× {order.count}</span>
+
+              </div>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
-   
+    );
+  })}
 </div>
+
           <div class="checkout-total">
             <ul>
               <li>
