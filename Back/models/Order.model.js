@@ -29,7 +29,7 @@ const Order = mongoose.model("Order", new mongoose.Schema({
     status: {
         type: String,
         enum: ['Pending', 'Confirmed', 'Delivered'],
-        default: 'Pending'
+        // default: ['Pending', 'Confirmed', 'Delivered'],
     }
 }));
 

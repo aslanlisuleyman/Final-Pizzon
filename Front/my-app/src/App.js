@@ -11,7 +11,7 @@ function App() {
 
   const[data,setData]=useState([])
   const[filter,setFilter]=useState([])
-  
+  const[user,setUser]=useState([])
   const[all,setAll]=useState([])
   const[filterAll,setFilterAll]=useState([])
   const[loading,setLoading]=useState(true)
@@ -32,6 +32,31 @@ function App() {
     },[])
 
 
+    useEffect(()=>{
+      axios.get("http://localhost:3000/register").then(res=>{
+        setUser(res.data)
+       
+        setLoading(false)
+      }).catch(error=>{
+        setLoading(false)
+        setError(error)
+      })
+      },[])
+
+
+    const deleteHandler=(id)=>{
+      axios.delete(`http://localhost:3000/pizza/${id}`).then(res=>{
+        setData([...res.data])
+        setFilter([...res.data])
+      })
+    }
+
+    const deleteHandlerr=(id)=>{
+      axios.delete(`http://localhost:3000/register/${id}`).then(res=>{
+        setUser([...res.data])
+        
+      })
+    }
    
   useEffect(()=>{
     axios.get("http://localhost:3000/all").then(res=>{
@@ -136,7 +161,7 @@ function App() {
   const datas={
     data,setData,filter,setFilter,wishlist,setWishlist,basket,setBasket,loading,setLoading,error,setError,
     all,setAll,filterAll,setFilterAll,handleButtonClick,handleDec,handleInc,addBasket,deleteBasket,searchHandler,sortprice,sortAz,sortZa,
-    homeCounter
+    homeCounter,deleteHandler,user,deleteHandlerr
 
   }
 

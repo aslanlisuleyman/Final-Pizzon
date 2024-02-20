@@ -21,6 +21,8 @@ import Dashboard from '../pages/Admin/Dashboard/Dashboard'
 import Edit from '../pages/Admin/Edit/Edit'
 import AdminRoot from '../pages/Admin/AdminRoot'
 import Order from '../pages/Admin/Order/Order'
+import Add from '../pages/Admin/Add/Add'
+import Users from '../pages/Admin/Users/Users'
 
 
 
@@ -90,12 +92,19 @@ const Routes = [{
         path:'',
         element:<Dashboard/>
     },{
-        path:'Edit',
+        path:'Edit/:id',
         element:<Edit/>
     },{
         path:'Order',
         element:<Order/>
-    }]
+    },{
+        path:'Add',
+        element:<Add/>
+    }
+,{
+    path:'Users',
+    element:<Users/>
+}]
 }]
 
 export default Routes

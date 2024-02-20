@@ -551,6 +551,15 @@ img {
     ;
 } 
 
+.qty-box{
+    padding-left: 60px;
+}
+
+.product-detail{
+    display: flex;
+    flex-direction: column;
+    padding-right: 120px;
+}
 .form-check .form-check-input  { 
     float: left; 
     margin-left: -1.5em;
@@ -617,3 +626,8 @@ label {
 } 
 
 
+.imtina{
+    position: absolute;
+    top: 112%;
+    right: 4%;
+}

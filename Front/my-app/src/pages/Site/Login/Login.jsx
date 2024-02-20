@@ -66,8 +66,8 @@ const Login = () => {
                 </div>
                 <div class="inputs">
                    
-                    <input type="email" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
-                    <input type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                    <input type="email" required placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                    <input type="password" required placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                 </div>
                 <button>Login</button>
             </form>

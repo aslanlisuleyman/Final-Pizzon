@@ -10,7 +10,7 @@ const AdminRoot = () => {
     <React.Fragment>
         <Header/>
         <Outlet/>
-        <Footer/>
+        
     </React.Fragment>
   )
 }

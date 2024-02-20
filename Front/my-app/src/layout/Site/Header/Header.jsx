@@ -34,7 +34,7 @@ const Header = () => {
       navigate(destination); // İstenilen sayfaya yönlendirme yapabilirsiniz.
       
 
-    }, 4000);
+    }, 3500);
    window.scrollTo(0,0)
      ;
     

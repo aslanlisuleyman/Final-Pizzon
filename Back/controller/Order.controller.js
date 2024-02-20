@@ -94,16 +94,6 @@ const OrderController = {
             res.status(404).send("Error");
         }
     },
-    // add: async (req, res) => {
-    //     try {
-    //         const { customerName, items, totalPrice, status } = req.body;
-    //         const newOrder = new Order({ customerName, items, totalPrice, status });
-    //         await newOrder.save();
-    //         res.status(201).send(newOrder);
-    //     } catch (error) {
-    //         res.status(404).send("Error");
-    //     }
-    // },
 
     add: async (req, res) => {
         try {

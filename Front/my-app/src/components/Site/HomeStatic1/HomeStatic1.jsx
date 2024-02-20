@@ -11,7 +11,7 @@ const HomeStatic1 = () => {
   return (
     <div className='hs1'>
     
-    <section class="home-banner tar1 left-padding overflow-h snipcss0-0-0-1 snipcss-AZGQk style-CplUd" id="style-CplUd">
+    <section class="home-banner hsf tar1 left-padding overflow-h snipcss0-0-0-1 snipcss-AZGQk style-CplUd" id="style-CplUd">
     <div class="black-jamun wow fadeInLeft animation-delay-5 animated snipcss0-1-1-2 style-FzRdT" id="style-FzRdT">
       <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/black-jamun.png" alt="Vacter Image" class="snipcss0-2-2-3"/>
     </div>
@@ -63,7 +63,7 @@ const HomeStatic1 = () => {
     
   </section>
 
-  <div class="daily-fresh-inner snipcss-oEnTZ">
+  <div class="daily-fresh-inner hst snipcss-oEnTZ">
   <div class="fresh-img wow fadeInLeft animated style-NJrOP" id="style-NJrOP">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/daily-fresh.png" alt="Daily Fresh"/>
   </div>

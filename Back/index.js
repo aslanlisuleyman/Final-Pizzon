@@ -7,7 +7,7 @@ const PizzaRouter=require("./routes/Pizza.routes")
 const AllRouter=require("./routes/All.routes")
 const EmployeeModel = require('./models/Employee')
 const OrderRouter=require("./routes/Order.routes")
-
+const UserRouter=require("./routes/Employee.routes")
 
 const app=express()
 app.use(express.json())
@@ -21,6 +21,7 @@ mongoose.connect("mongodb+srv://Suleyman:suleyman123@suleyman.vyltqxp.mongodb.ne
 app.use("/pizza",PizzaRouter)
 app.use("/all",AllRouter)
 app.use("/order",OrderRouter)
+app.use("/register",UserRouter)
 
 app.use((req,res,next)=>{
     res.setHeader("Access-Control-Allow-Origin", "*");

@@ -1,9 +1,9 @@
-const Pizza=require("../models/Pizza.model")
+const EmployeeSchema=require("../models/Employee")
 
-const PizzaController={
+const userController={
     getAll:async(req,res)=>{
         try{
-            const products=await Pizza.find()
+            const products=await EmployeeSchema.find()
             res.send(products)
         }
         catch(error){
@@ -13,7 +13,7 @@ const PizzaController={
     getById:async(req,res)=>{
         try{
             const {id}=req.params
-        const target=await Pizza.findById(id)
+        const target=await EmployeeSchema.findById(id)
         res.status(200).send(target)
         }
         catch(error){
@@ -24,8 +24,8 @@ const PizzaController={
     delete:async(req,res)=>{
         try{
              const {id}=req.params
-        await Pizza.findByIdAndDelete(id)
-        const prod=await Pizza.find({})
+        await EmployeeSchema.findByIdAndDelete(id)
+        const prod=await EmployeeSchema.find({})
         res.status(200).send(prod)
         }
         catch(error){
@@ -35,7 +35,7 @@ const PizzaController={
     add:async(req,res)=>{
         try{
             const{image,title,price,desc,brand}=req.body
-            const newProduct= new Pizza({image,title,price,desc,brand})
+            const newProduct= new EmployeeSchema({image,title,price,desc,brand})
             await newProduct.save()
             res.status(201).send(newProduct)
         }
@@ -48,9 +48,8 @@ const PizzaController={
         try{
             const{id}=req.params
             const{image,title,price,desc,brand}=req.body
-            await Pizza.findByIdAndUpdate(id,{image,title,price,desc,brand})
-            const edd= await Pizza.find({})
-            res.status(200).send(edd)
+            await EmployeeSchema.findByIdAndUpdate(id,{image,title,price,desc,brand})
+            res.status(200).send("succes")
         }
         catch(error){
             res.status(404).send("error")
@@ -58,4 +57,4 @@ const PizzaController={
     }
 }
 
-module.exports=PizzaController
+module.exports=userController

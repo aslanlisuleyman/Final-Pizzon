@@ -12,6 +12,17 @@ const CheckOut = () => {
       setOrders(res.data);
     });
   }, [])
+
+  const handleCancelOrder = (orderId) => {
+    axios.delete(`http://localhost:3000/order/${orderId}`)
+      .then(res => {
+        // Remove the deleted order from the local state
+        setOrders(orders.filter(order => order._id !== orderId));
+      })
+      .catch(err => {
+        console.error('Error deleting order:', err);
+      });
+  };
  
   return (
     <div>
@@ -141,10 +152,13 @@ const CheckOut = () => {
           </div>
         </div>
         <div class="col-xl-4 col-lg-4 col-md-12">
-          
-        <div class="your-order">
-  {orders.map((order, index) => {
-    return (
+          {orders.map((order,index)=>{
+            return(
+<>
+
+
+<div class="your-order">
+   
       <div key={index}>
         <h4 class="mb-20">Your Order</h4>
         {order.items.map((item, itemIndex) => (
@@ -155,20 +169,27 @@ const CheckOut = () => {
               </a>
             </div>
             <div class="product-detail">
-              <a href="shop-detail.html" class="pro-title">
+              <div><a  class="pro-title">
                 {item.title}
-              </a>
+              </a></div>
+              
               <div class="qty-box">
                 <span class="price">${item.price}.00</span>
-                <span class="qty">× {order.count}</span>
+                
 
               </div>
+
+              
             </div>
+
+
           </div>
+
+
         ))}
       </div>
-    );
-  })}
+    <div style={{marginLeft:'20px'}}  onClick={() => handleCancelOrder(order._id)}className='btn imtina btn-warning'>Imtina et</div>
+  
 </div>
 
           <div class="checkout-total">
@@ -178,7 +199,7 @@ const CheckOut = () => {
                   Subtotal
                 </span>
                 <span class="subtotal-amount">
-                  $160.00
+                  ${order.totalPrice}.00
                 </span>
               </li>
               <li>
@@ -186,7 +207,7 @@ const CheckOut = () => {
                   Shipping Cost
                 </span>
                 <span class="subtotal-amount">
-                  $04.00
+                  $00.00
                 </span>
               </li>
               <li>
@@ -194,12 +215,18 @@ const CheckOut = () => {
                   Total
                 </span>
                 <span class="total-amount">
-                  $164.00
+                  ${order.totalPrice}.00
                 </span>
               </li>
             </ul>
           </div>
-          <div class="pay-method">
+         
+
+</>
+
+            )
+          })}
+         <div class="pay-method">
             <h4 class="mb-20">
               Payment Method
             </h4>
@@ -236,6 +263,8 @@ const CheckOut = () => {
             </ul>
           </div>
         </div>
+
+        
       </div>
     </form>
   </div>

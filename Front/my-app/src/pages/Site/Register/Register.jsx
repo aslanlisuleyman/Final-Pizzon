@@ -30,9 +30,9 @@ const Register = () => {
                         <p>Create a free account with your email.</p>
                     </div>
                     <div class="inputs">
-                        <input type="text" placeholder="Full Name" onChange={(e)=>setName(e.target.value)}/>
-                        <input type="email" placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
-                        <input type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
+                        <input type="text" required placeholder="Full Name" onChange={(e)=>setName(e.target.value)}/>
+                        <input type="email" required placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                        <input type="password" required placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                     </div>
                     <button>Sign up</button>
                 </form>
