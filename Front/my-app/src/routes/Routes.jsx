@@ -23,6 +23,7 @@ import AdminRoot from '../pages/Admin/AdminRoot'
 import Order from '../pages/Admin/Order/Order'
 import Add from '../pages/Admin/Add/Add'
 import Users from '../pages/Admin/Users/Users'
+import Success from '../pages/Site/Success/Success'
 
 
 
@@ -78,6 +79,10 @@ const Routes = [{
     },{
         path:'Login',
         element:<Login/>
+    },
+    {
+        path:"success",
+        element:<Success/>
     }
     
     ,{

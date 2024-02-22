@@ -2,6 +2,7 @@ import React from 'react'
 import { Link} from 'react-router-dom';
 import "./Head.scss"
 const Header = () => {
+  
   return (
     <div className='ahead'>
     <div><img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/logo.png" alt="" /></div>

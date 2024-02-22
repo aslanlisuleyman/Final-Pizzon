@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import "./CheckOut.scss"
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import { loadStripe } from "@stripe/stripe-js";
 import MainContext from '../../../context/context';
 const CheckOut = () => {
   const [orders, setOrders] = useState([]);
@@ -24,6 +25,38 @@ const CheckOut = () => {
       });
   };
  
+  
+ const publishKey="pk_test_51OmafmGEW2D85ow9pZkYUis1YumtCQGHH5YGz4YQdv6VkYDVJ6GKugQ76eRuj8TIK6L4UAaJt6731hU4tTBm3Xby00LvDJMEJ1"
+ // const createOrder = (items, totalPrice) => {
+ //     axios.post("http://localhost:3000/orders", { items: items, totalPrice: totalPrice, status: "pending" }).then(res => {
+ //         console.log(res)
+ //     })
+ // }
+
+ const handleCheckOut= async()=>{
+  console.log("salam")
+     const productsContent={
+         products:basket
+     }
+     const stripe= await loadStripe(publishKey)
+
+     
+   const res = await axios.post(`http://localhost:3000/payment`, productsContent);
+ //   console.log(res.)
+ //   if (!res.ok) {
+ //     console.log("Ödeme işlemi başarısız oldu.");
+ //   }
+ //   const session = await res.data.json();
+console.log(res)
+   const result = await stripe.redirectToCheckout({
+     sessionId: res.data.id,
+   });
+console.log(result)
+   if (result.error) {
+     throw new Error(result.error.message);
+   }
+ }
+  
   return (
     <div>
       <section class="sub-banner bg-yellow overflow-h position-r snipcss-i49qt">
@@ -256,8 +289,11 @@ const CheckOut = () => {
                 </div>
               </li>
               <li>
-                <button class="btn-ct">
-                  Place Order
+                <button onClick={(e) => {
+                  e.preventDefault()
+                handleCheckOut()
+            }} class="btn-ct">
+                  Payment
                 </button>
               </li>
             </ul>

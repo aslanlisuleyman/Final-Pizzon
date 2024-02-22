@@ -49,8 +49,7 @@ const PizzaController={
             const{id}=req.params
             const{image,title,price,desc,brand}=req.body
             await Pizza.findByIdAndUpdate(id,{image,title,price,desc,brand})
-            const edd= await Pizza.find({})
-            res.status(200).send(edd)
+            res.status(200).send("succes")
         }
         catch(error){
             res.status(404).send("error")

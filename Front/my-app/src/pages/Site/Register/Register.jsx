@@ -13,7 +13,7 @@ const Register = () => {
       e.preventDefault()  
       axios.post('http://localhost:3000/Register',{name,email,password}).then(result=>{console.log(result)
       navigate('/Login')
-        
+     
 
 
     })

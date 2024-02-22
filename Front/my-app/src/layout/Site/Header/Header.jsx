@@ -10,13 +10,16 @@ import { Button, Offcanvas } from 'react-bootstrap';
 import MainContext from '../../../context/context';
 
 const Header = () => {
+  const userName = localStorage.getItem('userName');
+  
+  
   // const scrollToTop = () => {
   //   window.scrollTo({
   //     top: 0,
   //     behavior: "smooth"
   //   });
   // }
-  const {handleInc,handleDec,basket,deleteBasket,homeCounter}=useContext(MainContext)
+  const {handleInc,handleDec,basket,deleteBasket,homeCounter,setBasket}=useContext(MainContext)
   let totalPrice=0
   const [isFixed, setIsFixed] = useState(false);
   const [show, setShow] = useState(false);
@@ -26,6 +29,36 @@ const Header = () => {
   const handleLinkClick = (destination) => {
     setIsLoading(true); // Link tıklandığında yükleniyor durumunu true yap
 
+    // İstediğiniz zamanlayıcıyı buraya ekleyebilirsiniz, örneğin 1 saniye sonra setLoading(false) gibi.
+
+    // Ancak şu an için sadece örnekte kullanılan bir setTimeOut ekleyeceğim.
+    setTimeout(() => {
+      setIsLoading(false); // Simüle edilen yükleme tamamlandığında yükleniyor durumunu false yap
+      navigate(destination); // İstenilen sayfaya yönlendirme yapabilirsiniz.
+      
+
+    }, 3500);
+   window.scrollTo(0,0)
+     ;
+    
+   
+   
+  };
+
+  const handleLinkClickk = (destination) => {
+    setIsLoading(true); // Link tıklandığında yükleniyor durumunu true yap
+
+
+      
+      
+    localStorage.removeItem('userName'); 
+   const userName = localStorage.getItem('userName');
+      if (!userName) {
+          // If userName is not present, navigate to the login page
+          localStorage.removeItem("basket")
+          ; // Adjust the path to your login page
+          return; // Stop further execution
+      }
     // İstediğiniz zamanlayıcıyı buraya ekleyebilirsiniz, örneğin 1 saniye sonra setLoading(false) gibi.
 
     // Ancak şu an için sadece örnekte kullanılan bir setTimeOut ekleyeceğim.
@@ -131,9 +164,22 @@ const Header = () => {
 
 </div>
           <Link onClick={() => handleLinkClick("/Contact")} className='link' to="/Contact">CONTACT</Link>
-          <Link onClick={() => handleLinkClick("/Register")} className='link' to="/Register">REGISTER</Link>
-          <Link onClick={() => handleLinkClick("/Login")} className='link' to="/Login">LOGIN</Link>
+         
+         
+         
+         
+          {userName ? (
+            <>
+            <Link style={{display:'flex',gap:'3px'}}><i style={{paddingTop:'8px',color:'orange'}} class="fa-solid fa-circle-user "></i> <br /> <p style={{fontSize:'14px'}}>{userName}</p></Link>
+            <button onClick={() => handleLinkClickk("/")} style={{width:'70px',fontSize:'12px'}} className='btn btn-danger'>LogOut</button>
+            </>
           
+        ) : (
+          <>
+            <Link onClick={() => handleLinkClick("/Register")} className='link' to="/Register">REGISTER</Link>
+            <Link onClick={() => handleLinkClick("/Login")} className='link' to="/Login">LOGIN</Link>
+          </>
+        )}
             <li style={{color:"black"}} className='link bs' variant="primary" onClick={handleShow}>
             <i className="fa-solid fa-cart-shopping"></i><p style={{color:'white'}}>{homeCounter}</p>
       </li>

@@ -8,19 +8,21 @@ import { Toaster, toast } from "react-hot-toast";
 
 const Login = () => {
     
-    const [email,setEmail] = useState()
+    const [name,setName] = useState()
     const [password,setPassword] = useState()
+    
     const navigate = useNavigate()
 
     const handleSubmit = (e)=>{
       e.preventDefault()  
-      axios.post('http://localhost:3000/Login',{email,password}).then(result=>{console.log(result)
+      axios.post('http://localhost:3000/Login',{name,password}).then(result=>{console.log(result)
       if(result.data === "Success"){
         toast.promise(
           new Promise((resolve, reject) => {
             setTimeout(() => {
               {
                 resolve("Login successful!");
+                localStorage.setItem('userName', name);
                 navigate ("/")
               } 
             }, 1000);
@@ -66,7 +68,7 @@ const Login = () => {
                 </div>
                 <div class="inputs">
                    
-                    <input type="email" required placeholder="Email" onChange={(e)=>setEmail(e.target.value)}/>
+                    <input type="name" required placeholder="Name"  onChange={(e)=>setName(e.target.value)}/>
                     <input type="password" required placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
                 </div>
                 <button>Login</button>
