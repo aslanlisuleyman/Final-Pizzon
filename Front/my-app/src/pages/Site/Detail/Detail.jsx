@@ -6,7 +6,7 @@ import MainContext from '../../../context/context'
  
 
 const Detail = () => {
-  const {filter,addBasket}=useContext(MainContext)
+  const {addBasket}=useContext(MainContext)
     const[data,setdata]=useState({})
     const {id}=useParams()
     useEffect(()=>{
@@ -27,7 +27,7 @@ const Detail = () => {
     <p><span>If you like the product, put it in the cart</span></p>
     <button onClick={()=>{
                 addBasket(data)
-            }}>Add Cart</button>
+            }}>Add to Cart</button>
   </div>
 </div>
      

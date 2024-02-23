@@ -5,6 +5,44 @@ import axios from 'axios';
 import { loadStripe } from "@stripe/stripe-js";
 import MainContext from '../../../context/context';
 const CheckOut = () => {
+
+
+  const [email,setEmail] = useState("")
+  const [subject,setSubject] = useState("")
+  const [message,setMessage] = useState("")
+  const [messag,setMessag] = useState("")
+  const [subjec,setSubjec] = useState("")
+  const [country,setCountry] = useState("")
+  
+  const [company,setCompany] = useState("")
+  const sendMail = ()=>{
+    
+    axios.get("http://localhost:3000///",{
+
+    params:{
+      email,
+      message,
+      country,
+      company,
+      subjec,
+      messag
+
+    }
+    }).then(()=>{
+      console.log("failure")
+    }).catch(()=>{
+      console.log("success")
+      
+      
+    })
+    
+
+  }
+
+
+
+
+
   const [orders, setOrders] = useState([]);
   
   const {handleInc,handleDec,basket,deleteBasket,homeCounter}=useContext(MainContext)
@@ -34,8 +72,31 @@ const CheckOut = () => {
  // }
 
  const handleCheckOut= async()=>{
+
+
+  axios.get("http://localhost:3000///",{
+
+  params:{
+    email,
+    message,
+    country,
+    company,
+    subjec,
+    messag
+
+  }
+  }).then(()=>{
+    console.log("failure")
+  }).catch(()=>{
+    console.log("success")
+    
+    
+  })
+  
+
   console.log("salam")
   localStorage.removeItem("counter")
+  localStorage.removeItem("basket")
   
      const productsContent={
          products:basket
@@ -116,75 +177,46 @@ console.log(result)
             <div class="row align-items-center">
               <div class="col-xl-6 col-lg-6 col-md-6">
                 <div class="form-group">
-                  <input type="text" name="name" placeholder="First Name" class="form-control" required=""/>
+                  <input onChange={(e)=>setMessage(e.target.value)} type="text" name="name" placeholder="First Name" class="form-control" required=""/>
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6">
                 <div class="form-group">
-                  <input type="text" name="name" placeholder="Last Name" class="form-control" required=""/>
+                  <input onChange={(e)=>setMessag(e.target.value)} type="text" name="name" placeholder="Last Name" class="form-control" required=""/>
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6">
                 <div class="form-group">
-                  <input type="text" name="name" placeholder="Company Name" class="form-control" required=""/>
+                  <input  onChange={(e)=>setCompany(e.target.value)} type="text" name="name" placeholder="Company Name" class="form-control" required=""/>
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6">
                 <div class="form-group">
-                  <input type="text" name="email" placeholder="Email Address" class="form-control" required=""/>
+                  <input onChange={(e)=>setEmail(e.target.value)} type="text" name="email" placeholder="Email Address" class="form-control" required=""/>
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6">
                 <div class="form-group">
-                  <input type="text" name="text" placeholder="Phone No" class="form-control" required=""/>
+                  <input onChange={(e)=>setSubjec(e.target.value)} type="text" name="text" placeholder="Phone No" class="form-control" required=""/>
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6">
                 <div class="form-group">
-                  <input type="text" name="text" placeholder="Country" class="form-control" required=""/>
+                  <input onChange={(e)=>setCountry(e.target.value)} type="text" name="text" placeholder="Country" class="form-control" required=""/>
                 </div>
               </div>
-              <div class="col-xl-6 col-lg-6 col-md-6">
-                <div class="form-group">
-                  <input type="text" name="text" placeholder="House number and street name" class="form-control" required=""/>
-                </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6">
-                <div class="form-group">
-                  <input type="text" name="text" placeholder="Apartment, suit, unit, etc." class="form-control" required=""/>
-                </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6">
-                <div class="form-group">
-                  <input type="text" name="text" placeholder="Postcode / Zip" class="form-control" required=""/>
-                </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6">
-                <div class="form-group">
-                  <input type="text" name="text" placeholder="Town / City" class="form-control" required=""/>
-                </div>
-              </div>
+              
+             
+             
+             
               <div class="col-md-12">
                 <div class="form-group">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="create_account" required=""/>
-                    <label class="form-check-label" for="create_account">
-                      Create an Account?
-                    </label>
-                  </div>
+                 
                 </div>
               </div>
             </div>
           </div>
-          <div class="add-info md-mb-40">
-            <h4 class="mb-20">
-              Additional Information
-            </h4>
-            <div class="form-group p-0">
-              <textarea class="form-control" placeholder="Order Notes">
-              </textarea>
-            </div>
-          </div>
+          
         </div>
         <div class="col-xl-4 col-lg-4 col-md-12">
           {orders.map((order,index)=>{

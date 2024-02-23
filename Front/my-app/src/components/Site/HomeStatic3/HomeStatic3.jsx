@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./HomeStatic3.scss"
 import axios from "axios"
+import toast, { Toaster } from 'react-hot-toast';
 const HomeStatic3 = () => {
   
   const [email,setEmail] = useState()
@@ -25,8 +26,14 @@ const HomeStatic3 = () => {
     }
     }).then(()=>{
       console.log("failure")
+      
     }).catch(()=>{
       console.log("success")
+      toast.success("Message send successfully", {
+        position: "center", // Adjusted position to lowercase "center"
+        zIndex: 121212999999999 
+      });
+
     })
 
   }

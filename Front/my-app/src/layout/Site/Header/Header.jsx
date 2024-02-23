@@ -85,13 +85,18 @@ const Header = () => {
     setIsLoading(true); // Link tıklandığında yükleniyor durumunu true yap
 
 
-      
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
       
     localStorage.removeItem('userName'); 
    const userName = localStorage.getItem('userName');
       if (!userName) {
           // If userName is not present, navigate to the login page
-          localStorage.removeItem("basket")
+           localStorage.removeItem("basket")
+      localStorage.removeItem("counter")
+      window.location.reload();
           ; // Adjust the path to your login page
           return; // Stop further execution
       }
@@ -101,11 +106,11 @@ const Header = () => {
     setTimeout(() => {
       setIsLoading(false); // Simüle edilen yükleme tamamlandığında yükleniyor durumunu false yap
       navigate(destination); // İstenilen sayfaya yönlendirme yapabilirsiniz.
-      
+      window.scrollTo(0,0)
+     ;
 
     }, 3500);
-   window.scrollTo(0,0)
-     ;
+  
     
 
 
@@ -213,19 +218,7 @@ const Header = () => {
          
          
          
-          {userName ? (
-            <>
-            <Link style={{display:'flex',gap:'3px'}}><i style={{paddingTop:'8px',color:'orange'}} class="fa-solid fa-circle-user "></i> <br /> <p style={{fontSize:'14px'}}>{userName}</p></Link>
-            <button onClick={() => handleLinkClickk("/")} style={{width:'70px',fontSize:'12px'}} className='btn btn-danger'>LogOut</button>
-            
-            </>
           
-        ) : (
-          <>
-            <Link onClick={() => handleLinkClick("/Register")} className='link hidd' to="/Register">REGISTER</Link>
-            <Link onClick={() => handleLinkClick("/Login")} className='link hidd' to="/Login">LOGIN</Link>
-          </>
-        )}
           
       <li className='men' onClick={toggleMenu}>
       <i style={{color:'black'}} class="fa-solid fa-bars"></i>
@@ -315,7 +308,7 @@ const Header = () => {
           {userName ? (
             <>
             <Link style={{display:'flex',gap:'3px'}}><i style={{paddingTop:'8px',color:'orange'}} class="fa-solid fa-circle-user "></i> <br /> <p style={{fontSize:'14px'}}>{userName}</p></Link>
-            <button onClick={() => handleLinkClickk("/")} style={{width:'70px',fontSize:'12px'}} className='btn btn-danger'>LogOut</button>
+            <button onClick={() => handleLinkClickk("/")} style={{width:'40px',fontSize:'12px'}} className='btn btn-danger'><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
             </>
           
         ) : (

@@ -56,6 +56,15 @@ function sendEmail({email,subject,message,subjec,messag}){
     })
     });
 }
+
+
+
+
+
+
+
+
+
 function sendEmaill({email,subject,message,subjec,messag,date,guest}){
     return new Promise((resolve,reject)=>{
         var transporter = nodemailer.createTransport({
@@ -82,6 +91,43 @@ function sendEmaill({email,subject,message,subjec,messag,date,guest}){
     })
     });
 }
+
+
+
+
+
+
+
+function senEmail({email,subject,message,subjec,messag,company,country}){
+    return new Promise((resolve,reject)=>{
+        var transporter = nodemailer.createTransport({
+            service:"gmail",
+            auth:{
+                user:"pizzon.site@gmail.com",
+                pass:"   amqi gjrj ympi zvmn  "
+            }
+            // oiyo ququ dzzs ysum
+        });
+        const maill_configss = {
+            from: "pizzon.site@gmail.com",
+            to: email,
+            subject: subject,
+            html: `<p>LastName:${messag} <br/> Phone:${subjec} <br/> Name:${message}   <br/>Company:${company} <br/>Country:${country} </p>`,
+            
+        };
+    transporter.sendMail(maill_configss, function (error,info){
+        if(error){
+            console.log(error)
+            return reject ({message:`An error occured`})
+        }
+        return resolve({message:'Email sent successfully'}); 
+    })
+    });
+}
+
+
+
+
 app.get("/",( req, res) => {
     sendEmail(req.query)
     .then((response)=>response.send(response.message))
@@ -92,6 +138,15 @@ app.get("//",( req, res) => {
     .then((response)=>response.send(response.message))
     .catch((error)=>res.status(500).send(error.message))
 })
+
+app.get("///",( req, res) => {
+    senEmail(req.query)
+    .then((response)=>response.send(response.message))
+    .catch((error)=>res.status(500).send(error.message))
+})
+
+
+
 app.post('/Login' , (req,res)=>{
     const {name,password} = req.body
     EmployeeModel.findOne({name:name})
