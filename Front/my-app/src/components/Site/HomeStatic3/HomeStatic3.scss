@@ -537,3 +537,24 @@ input {
     position: absolute;
     top: 0px;
 }
+
+
+
+
+
+@media only screen and (min-width: 200px) and (max-width: 750px) {
+    .rez{
+        display: flex;
+        flex-direction: column;
+        padding-left: 60px;
+    }
+    .pza{
+        img{
+            display: none;
+        }
+        button{
+            margin-left: 90px;
+            width: 200px;
+        }
+    }
+  }

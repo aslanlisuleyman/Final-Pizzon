@@ -1111,3 +1111,73 @@ p:last-child {
     bottom: 72%;
     right: 1%;
   }
+
+
+  
+@media only screen and (min-width: 200px) and (max-width: 750px) {
+    .bmw{
+        img{
+            display: none;
+        }
+    }
+    .wr{
+        display: flex;
+        flex-direction: column;
+        
+        h2{
+            font-size: 25px;
+            width: 500px;
+        }
+    }
+
+
+    .lkl{
+        .scr{
+            position: absolute;
+            bottom: 100%;
+            right: 10%;
+        }
+    } 
+
+
+    
+
+
+
+
+    .brr{
+        display: none;
+        .ff{
+            display: none;
+        }
+        img{
+            display: none;
+        }
+        
+    }
+
+    
+  }
+
+
+
+  @media only screen and (min-width: 900px) and (max-width: 1515px) {
+    .lkl{
+        .scr{
+            position: absolute;
+            
+            top: 15%;
+            right: 15%;
+        }
+    } 
+    .brr{
+        display: none;
+        .ff{
+            display: none;
+        }
+        img{
+            display: none;
+        }
+        
+    }
+  }

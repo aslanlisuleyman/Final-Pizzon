@@ -1,4 +1,45 @@
 
+@media only screen and (min-width: 300px) and (max-width: 1515px) {
+  .header{
+    .header__right{
+      margin-right: 5%;
+      margin-bottom: 4%;
+     }
+  }
+}
+
+
+.mea{
+  display: flex;
+  flex-direction: column;
+}
+
+
+@media only screen and (min-width: 100px) and (max-width: 1450px) {
+  .header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-left: 3%;
+    gap: 10%;
+    .header__left{
+      img{
+        width: 200px;
+      }
+    }
+    .header__right{
+      .men{
+        display: block;
+        margin-right: 40px;
+      }
+      
+      .hidd{
+        display: none;
+      }
+
+     }
+  }
+}
 
 
 
@@ -119,6 +160,16 @@
      
 
   }
+  
+  .menu-overlay{
+    position: absolute;
+    background-color: #fff;
+    height: 200vh;
+    width: 120%;
+    margin-right: 30px;
+    z-index: 99999999999999999999999999;
+  }
+
 
 .shop{
   display: flex;
@@ -199,6 +250,92 @@
 
 
 
+.shop{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  position: relative;
+ ul{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  height: 192px;
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+  width: 200px;
+  justify-content: flex-start;
+  padding-left: 20px;
+  
+
+
+  li{
+    font-size: 16px;
+    
+    .li{
+      color: white;
+    }
+    .li:hover{
+      color: red;
+      transition: 0.5s;
+    }
+  }
+ }
+}
+
+.shop__right{
+  width: 200px;
+  background-color: #fbb200;
+  border-radius: 15px;
+  height: 155px;
+  display: none;
+  margin-top: 40px;
+  position: absolute;
+  color: white;
+  padding-right: 30px;
+  top: 26%;
+  
+  
+  z-index: 9999999999999999999999999999999999999999999;
+  
+  
+}
+
+.shop:hover{
+  .shop__left{
+    width: 50px;
+  }
+  .shop__right{
+    display: block;
+  }
+}
+
+.shop__left{
+  width: 50px;
+  li{
+    color: black;
+    
+  }
+    li:hover{
+      
+      cursor: pointer;
+      
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .pages{
   display: flex;
   flex-direction: column;
@@ -238,6 +375,7 @@
   width: 200px;
   background-color: #fbb200;
   border-radius: 15px;
+  z-index: 9999999999999999999999999999;
   height: 230px;
   display: none;
   margin-top: 40px;
@@ -336,6 +474,7 @@
   width: 200px;
   background-color: #fbb200;
   border-radius: 15px;
+  z-index: 999999999999999999999;
   height: 155px;
   display: none;
   margin-top: 40px;
@@ -371,7 +510,21 @@
     }
 }
 
+  .heab{
+    display: flex;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #c6c6c6;
 
+    img{
+      width: 75px;
+    }
+    i{
+      font-size: 20px;
+    }
+  }
 
 
 .off{
@@ -832,4 +985,10 @@ a:hover {
 
 .oe:hover{
   background-color: #fbb200;
+}
+
+
+
+.men{
+  display: none;
 }

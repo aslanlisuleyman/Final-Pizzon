@@ -22,7 +22,7 @@ import Edit from '../pages/Admin/Edit/Edit'
 import AdminRoot from '../pages/Admin/AdminRoot'
 import Order from '../pages/Admin/Order/Order'
 import Add from '../pages/Admin/Add/Add'
-import Users from '../pages/Admin/Users/Users'
+
 import Success from '../pages/Site/Success/Success'
 
 
@@ -106,10 +106,7 @@ const Routes = [{
         path:'Add',
         element:<Add/>
     }
-,{
-    path:'Users',
-    element:<Users/>
-}]
+]
 }]
 
 export default Routes

@@ -9,7 +9,7 @@ const Header = () => {
      <div>
     <ul>
     <Link to="">Dashboard</Link>
-    <Link to="Users">Users</Link>
+    
     <Link to="Add">Add</Link>
     <Link to="Order">Order</Link>
     <Link style={{marginLeft:'100px'}} to="/"><button class="Btn">

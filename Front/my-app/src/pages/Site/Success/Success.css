@@ -25,3 +25,9 @@
     color: #f44336;
   }
   
+  .success-page{
+    padding-top: 120px;
+    padding-bottom: 120px;
+
+    background-image: linear-gradient(to right, #ffefc5,#fffcf5 );
+  }

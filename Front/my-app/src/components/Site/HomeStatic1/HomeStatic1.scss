@@ -790,3 +790,19 @@ p:last-child {
 
 
 
+@media only screen and (min-width: 200px) and (max-width: 750px) {
+    .hand{
+        padding-top: 50px;
+
+        
+    }
+
+    .wow{
+        h3{
+            display: none;
+        }
+        p{
+            display: none;
+        }
+    }
+  }

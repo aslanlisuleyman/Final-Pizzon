@@ -20,7 +20,7 @@ const HomeStatic1 = () => {
     </div>
     <div class="row align-items-center snipcss0-1-1-6">
       <div class="col-xl-5 col-lg-6 col-md-6 home-left-content wow fadeInLeft animated snipcss0-2-6-7 style-gtHZH" id="style-gtHZH">
-        <div class="home-banner-content snipcss0-3-7-8">
+        <div class="home-banner-content hand snipcss0-3-7-8">
           <h1 class="home-banner-title snipcss0-4-8-9">
        Handmade, With an Extra Pinch of  <span class="snipcss0-5-9-10">    Love </span>
           </h1>

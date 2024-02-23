@@ -601,3 +601,40 @@ h6 {
     margin-bottom: 120px;
     margin-top: 200px;
 }
+
+
+.abv{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+@media only screen and (min-width: 200px) and (max-width: 750px) {
+    .abv{
+
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+    }
+    .gg{
+        margin-left: 50px;
+        width: 400px;
+        img{
+            width: 400px;
+        }
+    }
+
+    .auo{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .onv{
+        width: 500px;
+    }
+
+    .mns{
+        font-size: 20px;
+    }
+  }

@@ -38,7 +38,7 @@ const BookNow = () => {
 
   }
   return (
-    <div>
+    <div className='ppp'>
       <section class="sub-banner bg-yellow overflow-h position-r snipcss-i49qt">
   <div class="container">
     <div class="row align-items-center">
@@ -216,7 +216,7 @@ const BookNow = () => {
 
 
 
-<div>
+
 
   
 
@@ -224,12 +224,12 @@ const BookNow = () => {
 
 
     <div className='int'>
-      <input type="text" req placeholder='Name*' required onChange={(e)=>setMessag(e.target.value)} />
-      <input type="text" placeholder='Phone*' required onChange={(e)=>setSubjec(e.target.value)}/>
+      <input type="text" req placeholder='Name*'  onChange={(e)=>setMessag(e.target.value)} />
+      <input type="text" placeholder='Phone*'  onChange={(e)=>setSubjec(e.target.value)}/>
     </div>
     <div className='int'>
-    <input type="email" placeholder='Email*' required onChange={(e)=>setEmail(e.target.value)}/>
-    <input type="text" placeholder='Message*' required onChange={(e)=>setMessage(e.target.value)} />
+    <input type="email" placeholder='Email*' onChange={(e)=>setEmail(e.target.value)}/>
+    <input type="text" placeholder='Message*'  onChange={(e)=>setMessage(e.target.value)} />
     </div>
    
     
@@ -241,10 +241,10 @@ const BookNow = () => {
   <div className='co'>
     <div className='con'>
        <div className='int'>
-    <input type="text" placeholder='Date*' required onChange={(e)=>setDate(e.target.value)} />
+    <input type="text" placeholder='Date*'  onChange={(e)=>setDate(e.target.value)} />
     </div>
     <div className='int'>
-    <input type="text" placeholder='Guest*' required onChange={(e)=>setGuest(e.target.value)}/>
+    <input type="text" placeholder='Guest*' onChange={(e)=>setGuest(e.target.value)}/>
     </div>
     </div>
    
@@ -256,7 +256,7 @@ const BookNow = () => {
 
 
 
-</div>
+
 
 
 

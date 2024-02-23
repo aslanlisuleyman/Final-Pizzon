@@ -88,14 +88,22 @@ function App() {
         setHomeCounter(homeCounter+1)
         localStorage.setItem("counter",homeCounter+1)
         localStorage.setItem("basket",JSON.stringify([...basket,newItem]))
-        toast.success("Əlavə olundu")
+        // toast.success("Əlavə olundu", { zIndex: 121212999999999 })
+        toast.success("Item added to cart successfully", {
+          position: "center", // Adjusted position to lowercase "center"
+          zIndex: 121212999999999 
+        });
+      
       } else{
         const newData={...item,count:target.count+1,totalPrice:item.price*(target.count+1)}
         setHomeCounter(homeCounter+1)
         localStorage.setItem("counter",homeCounter+1)
         setBasket([...basket.filter(pro=>pro._id != item._id),newData])
         localStorage.setItem("basket",JSON.stringify([...basket.filter(pro=>pro._id != item._id),newData]))
-        toast.success("Əlavə olundu")
+        toast.success("Item added to cart successfully", {
+          position: "center", // Adjusted position to lowercase "center"
+          zIndex: 121212999999999 
+        });
   
       }
     }

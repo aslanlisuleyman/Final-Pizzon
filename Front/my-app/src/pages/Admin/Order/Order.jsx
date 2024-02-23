@@ -14,7 +14,34 @@ const Orders = () => {
          {
         orders.map((item,index)=>{ 
           return(
-             <li key={index}>{item.totalPrice}AZN 
+            
+             <li key={index}>${item.totalPrice}.00
+             {item.items.map((item, itemIndex) => (
+          <div key={itemIndex} class="product-box">
+            <div class="product-img">
+              <a href="shop-detail.html">
+                <img src={item.image} alt="Item Image" />
+              </a>
+            </div>
+            <div class="product-detail">
+              <div><a  class="pro-title">
+                {item.title}
+              </a></div>
+              
+              <div class="qty-box">
+                <span class="price">${item.price}.00</span>
+                
+
+              </div>
+
+              
+            </div>
+
+
+          </div>
+
+
+        ))}
 
              
           <select name="" id="" onChange={(e)=>{

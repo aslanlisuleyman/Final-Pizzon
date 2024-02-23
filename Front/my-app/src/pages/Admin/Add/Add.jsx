@@ -29,6 +29,7 @@ const Add = () => {
     },
   });
   return (
+    
     <div className='addf'>
       <div style={{paddingLeft:'50px',width:'30%'}}>
         5 category var: pizza all offers pasta slides 

@@ -7,7 +7,7 @@ import MainContext from '../../../context/context';
 const CheckOut = () => {
   const [orders, setOrders] = useState([]);
   
-  const {handleInc,handleDec,basket,deleteBasket}=useContext(MainContext)
+  const {handleInc,handleDec,basket,deleteBasket,homeCounter}=useContext(MainContext)
   useEffect(() => {
     axios.get("http://localhost:3000/order").then(res => {
       setOrders(res.data);
@@ -35,6 +35,8 @@ const CheckOut = () => {
 
  const handleCheckOut= async()=>{
   console.log("salam")
+  localStorage.removeItem("counter")
+  
      const productsContent={
          products:basket
      }
@@ -264,30 +266,16 @@ console.log(result)
               Payment Method
             </h4>
             <ul>
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="payment" id="bank_transfer" checked=""/>
-                  <label class="form-check-label" for="bank_transfer">
-                    Direct bank transfer
-                  </label>
-                </div>
-              </li>
+             
               <li>
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="payment" id="check_payments"/>
                   <label class="form-check-label" for="check_payments">
-                    Check payments
+                    Direct bank transfer
                   </label>
                 </div>
               </li>
-              <li>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="payment" id="cash_delivery"/>
-                  <label class="form-check-label" for="cash_delivery">
-                    Cash on delivery
-                  </label>
-                </div>
-              </li>
+              
               <li>
                 <button onClick={(e) => {
                   e.preventDefault()

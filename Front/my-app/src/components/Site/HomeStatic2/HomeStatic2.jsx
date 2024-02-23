@@ -17,17 +17,17 @@ const HomeStatic2 = () => {
   return (
     <div className='hs2'>
 
-<section class="our-story right-padding position-r mb-150 overflow-h snipcss-YXkPv style-gN9cP" id="style-gN9cP">
-  <div class="black-jamun wow fadeInLeft animation-delay-5 animated style-48ObW" id="style-48ObW">
+<section class="our-story brr right-padding position-r mb-150 overflow-h snipcss-YXkPv style-gN9cP" id="style-gN9cP">
+  <div class="black-jamun ff wow fadeInLeft animation-delay-5 animated style-48ObW" id="style-48ObW">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/black-jamun.png" alt="Vacter Image"/>
   </div>
-  <div class="story-onion wow fadeInUp animated style-by3AJ" id="style-by3AJ">
+  <div class="ff story-onion wow fadeInUp animated style-by3AJ" id="style-by3AJ">
     <img className='or' src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/onion.png" alt="Vacter Image"/>
   </div>
   <div class="our-story-inner">
     <div class=" align-items-center wor">
       <div class=" wo wow fadeInLeft order-md_2 animated style-GpvIA " id="style-GpvIA">
-        <div class="story-img text-center">
+        <div class="story-img bmw text-center">
           <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/our-story.png" alt="Our Story"/>
         </div>
       </div>
@@ -58,7 +58,7 @@ const HomeStatic2 = () => {
 
 
 
-<section class="feeddback-part position-r mb-150 overflow-h snipcss0-0-0-1 snipcss-aaBv9">
+<section class="feeddback-part position-r mb-150 overflow-h lkl snipcss0-0-0-1 snipcss-aaBv9">
   <div class="feeddback-vacter wow fadeInLeft animation-delay-5 animated snipcss0-1-1-2 style-5AFpT" id="style-5AFpT">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/leaf.png" alt="Vacter Image" class="snipcss0-2-2-3"/>
   </div>

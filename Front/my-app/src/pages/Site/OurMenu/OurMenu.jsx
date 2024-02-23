@@ -132,7 +132,7 @@ const OurMenu = () => {
                 addBasket(item)
             }} class="btn-ct btn-small snipcss0-0-0-1">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
-    Order Now
+    Add to Cart
   </a>
 </div>
             </div>

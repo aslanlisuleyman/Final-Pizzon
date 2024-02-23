@@ -8,22 +8,58 @@ import { Link} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { Button, Offcanvas } from 'react-bootstrap';
 import MainContext from '../../../context/context';
+import axios from "axios"
 
 const Header = () => {
+  
+
+
+  const createOrder=()=>{
+    const orderData = {
+      customerName: "John Doe", // You can replace with dynamic data
+      items: basket.map(item => item._id), // Assuming items array contains IDs
+      totalPrice: totalPrice,
+      status: 'Pending' // Or any default status
+  };
+    
+    
+    axios.post("http://localhost:3000/order",orderData).then(res=>{
+      console.log(res)
+    })
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+   }
+
+
+
+
   const userName = localStorage.getItem('userName');
   
   
-  // const scrollToTop = () => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     behavior: "smooth"
-  //   });
-  // }
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
   const {handleInc,handleDec,basket,deleteBasket,homeCounter,setBasket}=useContext(MainContext)
   let totalPrice=0
   const [isFixed, setIsFixed] = useState(false);
   const [show, setShow] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    window.scrollTo(0,0)
+    ;
+  };
+  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const navigate = useNavigate();
 
   const handleLinkClick = (destination) => {
@@ -71,6 +107,8 @@ const Header = () => {
    window.scrollTo(0,0)
      ;
     
+
+
    
    
   };
@@ -94,9 +132,115 @@ const Header = () => {
     };
   }, []);
 
+
+  const handc=()=>{
+    window.scrollTo(0,0)
+     ;
+  }
+
   return (
     <div className={`header ${isFixed ? 'fixed' : ''}`}>
       
+      {isMenuOpen && <div className="menu-overlay" onClick={toggleMenu}>
+        
+        
+
+        <div className='heab'>
+
+         <div>
+    <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/logo.png" alt="" />
+         </div>
+         <div>
+
+         <i style={{color:'black'}} class="fa-solid fa-x"></i>
+         </div>
+
+        </div>
+
+
+
+
+
+      <ul className='mea'>
+          <Link onClick={() => handleLinkClick("/")} className='link hidd' to="/">HOME</Link>
+
+          <div className='shop hidd'>
+
+           <div className='shop__left'><li className='link shop '>SHOP</li></div>  
+           
+          <div className='shop__right'>
+            <ul>
+              <li><Link onClick={() => handleLinkClick("/ShopList")} to="/ShopList" className='li '>SHOP LIST</Link></li>
+              
+              <li><Link onClick={() => handleLinkClick("/Cart")} to="/Cart" className='li'>CART</Link></li>
+              <li><Link onClick={() => handleLinkClick("/CheckOut")} to="/CheckOut" className='li'>CHECKOUT</Link></li>
+            </ul>
+          </div>
+         
+          </div>
+         
+          <div className='pages hidd'>
+
+           <div className='pages__left'><li className='link pages'>PAGES</li></div>  
+           
+          <div className='pages__right'>
+            <ul>
+              <li><Link onClick={() => handleLinkClick("/AboutUs")} to="/AboutUs" className='li'>ABOUT US</Link></li>
+              <li><Link onClick={() => handleLinkClick("/OurMenu")} to="/OurMenu" className='li'>OUR MENU</Link></li>
+              <li><Link onClick={() => handleLinkClick("/OurTeam")} to="/OurTeam" className='li'>OUR TEAM</Link></li>
+              <li><Link onClick={() => handleLinkClick("/BookNow")} to="/BookNow" className='li'>BOOK NOW</Link></li>
+              <li><Link onClick={() => handleLinkClick("/ErrorPage")} to="/ErrorPage" className='li'>404 PAGE</Link></li>
+            </ul>
+          </div>
+         
+          </div>
+          <div className='blog hidd'>
+
+<div className='blog__left'><li className='link blog'>BLOG</li></div>  
+
+<div className='blog__right'>
+ <ul>
+   <li><Link onClick={() => handleLinkClick("/BlogRight")} to="/BlogRight" className='li'>BLOG RIGHT</Link></li>
+   <li><Link onClick={() => handleLinkClick("/BlogLeft")} to="/BlogLeft" className='li'>BLOG LEFT</Link></li>
+   <li><Link onClick={() => handleLinkClick("/BlogDetail")} to="/BlogDetail" className='li'>BLOG DETAIL</Link></li>
+
+ </ul>
+</div>
+
+</div>
+          <Link onClick={() => handleLinkClick("/Contact")} className='link hidd' to="/Contact">CONTACT</Link>
+         
+         
+         
+         
+          {userName ? (
+            <>
+            <Link style={{display:'flex',gap:'3px'}}><i style={{paddingTop:'8px',color:'orange'}} class="fa-solid fa-circle-user "></i> <br /> <p style={{fontSize:'14px'}}>{userName}</p></Link>
+            <button onClick={() => handleLinkClickk("/")} style={{width:'70px',fontSize:'12px'}} className='btn btn-danger'>LogOut</button>
+            
+            </>
+          
+        ) : (
+          <>
+            <Link onClick={() => handleLinkClick("/Register")} className='link hidd' to="/Register">REGISTER</Link>
+            <Link onClick={() => handleLinkClick("/Login")} className='link hidd' to="/Login">LOGIN</Link>
+          </>
+        )}
+          
+      <li className='men' onClick={toggleMenu}>
+      <i style={{color:'black'}} class="fa-solid fa-bars"></i>
+      </li>
+      
+
+    </ul>
+        
+        
+        </div>}
+    
+       
+
+
+
        <div className="overlay" style={{ display: isLoading ? 'block' : 'none' }}>
         <div className="loading-spinner">
           <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/preloader.svg" alt="Loading" />
@@ -117,15 +261,15 @@ const Header = () => {
       </div>
       <div className='header__right'>
         <ul>
-          <Link onClick={() => handleLinkClick("/")} className='link' to="/">HOME</Link>
+          <Link onClick={() => handleLinkClick("/")} className='link hidd' to="/">HOME</Link>
 
-          <div className='shop'>
+          <div className='shop hidd'>
 
-           <div className='shop__left'><li className='link shop'>SHOP</li></div>  
+           <div className='shop__left'><li className='link shop '>SHOP</li></div>  
            
           <div className='shop__right'>
             <ul>
-              <li><Link onClick={() => handleLinkClick("/ShopList")} to="/ShopList" className='li'>SHOP LIST</Link></li>
+              <li><Link onClick={() => handleLinkClick("/ShopList")} to="/ShopList" className='li '>SHOP LIST</Link></li>
               
               <li><Link onClick={() => handleLinkClick("/Cart")} to="/Cart" className='li'>CART</Link></li>
               <li><Link onClick={() => handleLinkClick("/CheckOut")} to="/CheckOut" className='li'>CHECKOUT</Link></li>
@@ -134,7 +278,7 @@ const Header = () => {
          
           </div>
          
-          <div className='pages'>
+          <div className='pages hidd'>
 
            <div className='pages__left'><li className='link pages'>PAGES</li></div>  
            
@@ -149,7 +293,7 @@ const Header = () => {
           </div>
          
           </div>
-          <div className='blog'>
+          <div className='blog hidd'>
 
 <div className='blog__left'><li className='link blog'>BLOG</li></div>  
 
@@ -163,7 +307,7 @@ const Header = () => {
 </div>
 
 </div>
-          <Link onClick={() => handleLinkClick("/Contact")} className='link' to="/Contact">CONTACT</Link>
+          <Link onClick={() => handleLinkClick("/Contact")} className='link hidd' to="/Contact">CONTACT</Link>
          
          
          
@@ -176,12 +320,15 @@ const Header = () => {
           
         ) : (
           <>
-            <Link onClick={() => handleLinkClick("/Register")} className='link' to="/Register">REGISTER</Link>
-            <Link onClick={() => handleLinkClick("/Login")} className='link' to="/Login">LOGIN</Link>
+            <Link onClick={() => handleLinkClick("/Register")} className='link hidd' to="/Register">REGISTER</Link>
+            <Link onClick={() => handleLinkClick("/Login")} className='link hidd' to="/Login">LOGIN</Link>
           </>
         )}
             <li style={{color:"black"}} className='link bs' variant="primary" onClick={handleShow}>
             <i className="fa-solid fa-cart-shopping"></i><p style={{color:'white'}}>{homeCounter}</p>
+      </li>
+      <li className='men' onClick={toggleMenu}>
+      <i style={{color:'black'}} class="fa-solid fa-bars"></i>
       </li>
       
 
@@ -258,14 +405,14 @@ deleteBasket(item._id)
   <div class="cart-button snipcss0-2-56-62">
     <ul class="snipcss0-3-62-63">
       <li class="snipcss0-4-63-64">
-        <Link to="/Cart"  class="btn-ct btn-small snipcss0-5-64-65">
+        <Link to="/Cart" onClick={scrollToTop}  class="btn-ct btn-small snipcss0-5-64-65">
           View Cart
         </Link>
       </li>
       <li class="snipcss0-4-63-66">
-        <a  class="btn-ct btn-small subtotal snipcss0-5-66-67">
+        <Link to="CheckOut" onClick={createOrder}  class="btn-ct btn-small subtotal snipcss0-5-66-67">
           Checkout
-        </a>
+        </Link>
       </li>
     </ul>
   </div>
