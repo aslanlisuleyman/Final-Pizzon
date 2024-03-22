@@ -29,6 +29,7 @@ const HomeStatic3 = () => {
       
     }).catch(()=>{
       console.log("success")
+      window.location.reload();
       toast.success("Message send successfully", {
         position: "center", // Adjusted position to lowercase "center"
         zIndex: 121212999999999 

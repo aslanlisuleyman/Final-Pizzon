@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import MainContext from '../../../context/context'
 import "./OurMenu.scss"
 const OurMenu = () => {
@@ -19,6 +19,21 @@ const OurMenu = () => {
       behavior: "smooth"
     });
   };
+  const navigate = useNavigate()
+  const handleAddBasket = (item) => {
+    const userName = localStorage.getItem('userName');
+    if (!userName) {
+        // If userName is not present, navigate to the login page
+       navigate("/Login")
+       window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+        ; // Adjust the path to your login page
+        return; // Stop further execution
+    }
+    addBasket(item)
+};
   return (
     <div>
       <section class="sub-banner bg-yellow overflow-h position-r snipcss-i49qt">
@@ -129,7 +144,7 @@ const OurMenu = () => {
               <div className='card2__desc'>{item.desc}</div>
               <div class="btt menu-item-order snipcss-DQMsl">
   <a onClick={()=>{
-                addBasket(item)
+                handleAddBasket(item)
             }} class="btn-ct btn-small snipcss0-0-0-1">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
     Add to Cart
@@ -156,7 +171,7 @@ const OurMenu = () => {
            <div className='card2__desc'>{item.desc}</div>
            <div class="btt menu-item-order snipcss-DQMsl">
 <a onClick={()=>{
-                addBasket(item)
+                handleAddBasket(item)
             }} class="btn-ct btn-small snipcss0-0-0-1">
  <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
  Order Now
@@ -184,7 +199,7 @@ const OurMenu = () => {
               <div className='card2__desc'>{item.desc}</div>
               <div class="btt menu-item-order snipcss-DQMsl">
   <a onClick={()=>{
-                addBasket(item)
+                handleAddBasket(item)
             }} class="btn-ct btn-small snipcss0-0-0-1">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
     Order Now
@@ -211,7 +226,7 @@ const OurMenu = () => {
               <div className='card2__desc'>{item.desc}</div>
               <div class="btt menu-item-order snipcss-DQMsl">
   <a onClick={()=>{
-                addBasket(item)
+                handleAddBasket(item)
             }} class="btn-ct btn-small snipcss0-0-0-1">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
     Order Now
@@ -238,7 +253,7 @@ const OurMenu = () => {
               <div className='card2__desc'>{item.desc}</div>
               <div class="btt menu-item-order snipcss-DQMsl">
   <a onClick={()=>{
-                addBasket(item)
+                handleAddBasket(item)
             }} class="btn-ct btn-small snipcss0-0-0-1">
     <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/cart-icon-white.png" alt="Cart Icon" class="snipcss0-1-1-2"/>
     Order Now

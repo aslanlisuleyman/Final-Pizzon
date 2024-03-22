@@ -64,7 +64,26 @@ const Header = () => {
 
   const handleLinkClick = (destination) => {
     setIsLoading(true); // Link tıklandığında yükleniyor durumunu true yap
+  
+    // İstediğiniz zamanlayıcıyı buraya ekleyebilirsiniz, örneğin 1 saniye sonra setLoading(false) gibi.
 
+    // Ancak şu an için sadece örnekte kullanılan bir setTimeOut ekleyeceğim.
+    setTimeout(() => {
+      setIsLoading(false); // Simüle edilen yükleme tamamlandığında yükleniyor durumunu false yap
+      navigate(destination); // İstenilen sayfaya yönlendirme yapabilirsiniz.
+      
+
+    }, 3500);
+   window.scrollTo(0,0)
+     ;
+    
+   
+   
+  };
+
+  const handleLinkClickkkk = (destination) => {
+    setIsLoading(true); // Link tıklandığında yükleniyor durumunu true yap
+  
     // İstediğiniz zamanlayıcıyı buraya ekleyebilirsiniz, örneğin 1 saniye sonra setLoading(false) gibi.
 
     // Ancak şu an için sadece örnekte kullanılan bir setTimeOut ekleyeceğim.
@@ -167,7 +186,7 @@ const Header = () => {
 
 
       <ul className='mea'>
-          <Link onClick={() => handleLinkClick("/")} className='link hidd' to="/">HOME</Link>
+          <Link onClick={() => handleLinkClickkkk("/")} className='link hidd' to="/">HOME</Link>
 
           <div className='shop hidd'>
 
@@ -254,7 +273,7 @@ const Header = () => {
       </div>
       <div className='header__right'>
         <ul>
-          <Link onClick={() => handleLinkClick("/")} className='link hidd' to="/">HOME</Link>
+          <Link onClick={() => handleLinkClickkkk("/")} className='link hidd' to="/">HOME</Link>
 
           <div className='shop hidd'>
 

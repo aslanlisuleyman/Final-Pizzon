@@ -1,7 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
+import LoginAdmin from '../AdminLogin/LoginAdmin';
 const Orders = () => {
   const [orders,setOrders]=useState([])
+  const navigate = useNavigate();
+  const [authenticated, setAuthenticated] = useState(false);
+
+  useEffect(() => {
+      // Check if the user is authenticated on component mount
+      const isAuthenticated = localStorage.getItem('authenticated') === 'true';
+      setAuthenticated(isAuthenticated);
+  }, []);
   useEffect(()=>{
     axios.get("http://localhost:3000/order").then(res=>{
       setOrders(res.data)
@@ -9,7 +19,10 @@ const Orders = () => {
   },[])
   return (
     <div style={{paddingTop:'90px',backgroundColor:'white',paddingLeft:'40px'}}>
-      <ul>
+
+{authenticated ? (
+             <>
+              <ul>
 
          {
         orders.map((item,index)=>{ 
@@ -60,6 +73,14 @@ const Orders = () => {
         })
       }
       </ul>
+             </>
+              
+            ) : (
+                <LoginAdmin setAuthenticated={setAuthenticated} />
+            )}
+
+
+     
      
     </div>
   )

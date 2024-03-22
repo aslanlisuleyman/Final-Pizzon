@@ -3,6 +3,7 @@ import "./HomeStatic1.scss"
 import { Link } from 'react-router-dom'
 const HomeStatic1 = () => {
   const scrollToTop = () => {
+    
     window.scrollTo({
       top: 0,
       behavior: "smooth"
@@ -37,7 +38,7 @@ const HomeStatic1 = () => {
       </div>
       <div class="col-xl-7 col-lg-6 col-md-6 home-right-img snipcss0-2-6-15">
         <div class="home-banner-img snipcss0-3-15-16">
-          <div class="home-img wow fadeInRight animation-delay-5 animated snipcss0-4-16-17 style-rwWFD" id="style-rwWFD">
+          <div class="home-img wow hj fadeInRight animation-delay-5 animated snipcss0-4-16-17 style-rwWFD" id="style-rwWFD">
             <div class="home-img-1 snipcss0-5-17-18">
               <img src="https://themes.templatescoder.com/pizzon/html/demo/1-2/01-Modern/images/banner-img.png" alt="banner-img" class="snipcss0-6-18-19"/>
             </div>

@@ -1,8 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import MainContext from '../../../context/context'
 import axios from "axios"
 import { useFormik } from 'formik';
 import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import LoginAdmin from '../AdminLogin/LoginAdmin';
 import "./Add.scss"
 
 const Add = () => {
@@ -28,10 +30,23 @@ const Add = () => {
      
     },
   });
+  const navigate = useNavigate();
+  const [authenticated, setAuthenticated] = useState(false);
+
+  useEffect(() => {
+      // Check if the user is authenticated on component mount
+      const isAuthenticated = localStorage.getItem('authenticated') === 'true';
+      setAuthenticated(isAuthenticated);
+  }, []);
   return (
     
     <div className='addf'>
-      <div style={{paddingLeft:'50px',width:'30%'}}>
+      
+
+      {authenticated ? (
+             
+              <>
+              <div style={{paddingLeft:'50px',width:'30%'}}>
         5 category var: pizza all offers pasta slides 
       </div>
 
@@ -96,6 +111,15 @@ const Add = () => {
           
           <button className='btn btn-success' type="submit">Submit</button>
         </form>
+              </>
+            ) : (
+                <LoginAdmin setAuthenticated={setAuthenticated} />
+            )}
+
+
+
+
+      
     </div>
   )
 }

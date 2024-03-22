@@ -43,7 +43,7 @@ function sendEmail({email,subject,message,subjec,messag}){
             from: "pizzon.site@gmail.com",
             to: email,
             subject: subject,
-            html: `<p>Name:${messag} <br/> Phone:${subjec} <br/> Message:${message}    </p>`,
+            html: `<p style="color:brown; font-size:17px;"> <i> Bizimlə əlaqə saxladığınız üçün təşəkkür edirik! Qısa müddət ərzində sizə geri dönüş ediləcək.<i/><p/>  <br/> <p style="color:	#5D4037;font-size:14px;">Name:${messag} <br/> Phone:${subjec} <br/> Message:${message}    </p>`,
             
         };
        
@@ -79,7 +79,7 @@ function sendEmaill({email,subject,message,subjec,messag,date,guest}){
             from: "pizzon.site@gmail.com",
             to: email,
             subject: subject,
-            html: `<p>Name:${messag} <br/> Phone:${subjec} <br/> Message:${message}   <br/>Date:${date} <br/>Guest:${guest} </p>`,
+            html: ` <p style="color:brown; font-size:17px;"> <i> Rezervasiya tələbiniz qəbul olundu! Bizi seçdiyiniz üçün təşəkkür edirik.<i/><p/>  <br/> <p style="color:	#5D4037;font-size:14px;">Name:${messag} <br/> Phone:${subjec} <br/> Message:${message}   <br/>Date:${date} <br/>Guest:${guest} </p>`,
             
         };
     transporter.sendMail(mail_configss, function (error,info){
@@ -112,7 +112,7 @@ function senEmail({email,subject,message,subjec,messag,company,country}){
             from: "pizzon.site@gmail.com",
             to: email,
             subject: subject,
-            html: `<p>LastName:${messag} <br/> Phone:${subjec} <br/> Name:${message}   <br/>Company:${company} <br/>Country:${country} </p>`,
+            html: ` <p style="color:brown; font-size:17px;"><i> Hörmətli <span style="color:black;"> ${messag} ${message} </span>, sifarişiniz qəbul olundu!   <i/>  </p>`,
             
         };
     transporter.sendMail(maill_configss, function (error,info){

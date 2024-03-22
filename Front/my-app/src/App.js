@@ -32,16 +32,6 @@ function App() {
     },[])
 
 
-    // useEffect(()=>{
-    //   axios.get("http://localhost:3000/register").then(res=>{
-    //     setUser(res.data)
-       
-    //     setLoading(false)
-    //   }).catch(error=>{
-    //     setLoading(false)
-    //     setError(error)
-    //   })
-    //   },[])
 
 
     const deleteHandler=(id)=>{
@@ -51,12 +41,6 @@ function App() {
       })
     }
 
-    // const deleteHandlerr=(id)=>{
-    //   axios.delete(`http://localhost:3000/register/${id}`).then(res=>{
-    //     setUser([...res.data])
-        
-    //   })
-    // }
    
   useEffect(()=>{
     axios.get("http://localhost:3000/all").then(res=>{

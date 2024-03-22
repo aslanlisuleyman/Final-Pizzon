@@ -31,6 +31,13 @@ const BookNow = () => {
       console.log("failure")
     }).catch(()=>{
       console.log("success")
+      window.location.reload();
+      toast.success("Message send successfully", {
+        position: "center", // Adjusted position to lowercase "center"
+        zIndex: 121212999999999 
+        
+      });
+      
       
       
     })
@@ -249,7 +256,7 @@ const BookNow = () => {
     </div>
    
 
-   <button  onClick={sendMail} ><Link to="/">BOOK NOW</Link></button>
+   <button  onClick={sendMail} >BOOK NOW</button>
   </div>
 
  
